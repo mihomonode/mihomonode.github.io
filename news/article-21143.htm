@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-21143.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微服务架构学习与思考(09)：分布式链路追踪系统-dapper论文学习</title>
+        <meta name="description" content="一、技术产生的背景 1.1 背景 先来了解一下分布式链路追踪技术产生的背景。  在现在这个发达的互联网世界，互联网的规模越来越大，比如 google 的搜索，Netflix 的视频流直播，淘宝的购物等" />
+        <link rel="icon" href="__ADDON__/img/mihomonode/favicon.ico" type="image/x-icon"/>
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                                                <a href="/">
+                                    <span>Mihomo Node</span>
+                                </a>
+                                                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                        <li>
+                                <a href="#"><span>关于</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>联系</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">微服务架构学习与思考(09)：分布式链路追踪系统-dapper论文学习</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<h2 id="一技术产生的背景">一、技术产生的背景</h2> <h3 id="11-背景">1.1 背景</h3> <p>先来了解一下分布式链路追踪技术产生的背景。</p> <p></p> <p>在现在这个发达的互联网世界，互联网的规模越来越大，比如 google 的搜索，Netflix 的视频流直播，淘宝的购物等。</p> <p>像这种大规模的应用，我们每点击一下鼠标，搜索一个关键字，背后可能会有几百台服务器上的N个服务来为我们提供服务。</p> <p>我们用谷歌搜索：<code>分布式</code> 3 个字，搜索一些文章来学习分布式的知识。假如，查询时结果返回耗时 5 秒之多。</p> <p>作为用户的你，等待这么长时间才返回结果，心里肯定不满意。</p> <p>那作为一项服务来说，公司为了更好的服务用户，让用户满意，就必须要缩短用户等待返回查询结果的时间，要尽可能快的返回结果。</p> <p>这样用户使用时才会感觉满意。</p> <p></p> <p>当然，这个优化任务就落在了产品技术研发人身上了。- -！</p> <p>作为开发服务的产品技术人员，要怎么样做，才能让用户搜索时返回结果很快呢？</p> <p> 这时，产品研发人就思考在思考：</p> <p>用户的一次搜索背后可能有几百个后端服务来提供服务。比如现在流行的微服务架构。</p> <p>如果后端有一条服务比较慢，那么就可能会拖慢这整个搜索结果。</p> <p>在这么多的服务中，要怎么样做，才能找出慢的服务呢？怎么找出是哪一条后端服务比较慢呢？</p> <p>产品技术研发研究人员为了解决这个问题，慢慢想出了分布式链路追踪的技术，在到具体的技术实践，这是一个漫长的过程。</p> <p>他们把研究成果汇聚在了<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://research.google/pubs/pub36356/"  target="_blank" rel="nofollow">dapper</a> 论文里。</p> <p>当然它也借鉴了前人的研究成果 ，尤其是<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.71.5342&amp;rep=rep1&amp;type=pdf"  target="_blank" rel="nofollow">Magpie</a> 和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.usenix.org/legacy/event/nsdi07/tech/full_papers/fonseca/fonseca_html/index.html"  target="_blank" rel="nofollow">X-Trace</a>，还有<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://roc.cs.berkeley.edu/papers/roc-pinpoint-ipds.pdf"  target="_blank" rel="nofollow">Pinpoint</a>。</p> <blockquote> <p>说明：这里的 Pinpoint 并不是 pinpoint-apm，而是一篇论文</p> </blockquote> <p> 在 [dapper](https://research.google/pubs/pub36356/) 论文开头有这样一段描述：</p> <blockquote> <p>Modern Internet services are often implemented as complex, large-scale distributed systems. These applications are constructed from collections of software modules that may be developed by different teams, perhaps in different programming languages, and could span many thousands of machines across multiple physical facili- ties. Tools that aid in understanding system behavior and reasoning about performance issues are invaluable in such an environment.</p> <p>from:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://research.google/pubs/pub36356/"  target="_blank" rel="nofollow">https://research.google/pubs/pub36356/</a></p> <p>大意是说现代互连网服务，通常都是用复杂的、大规模分布式集群来实现。这些应用构建在不同的模块上，这些软件模块，可能由不同的团队开发，可能使用不同的开发语言，可能部署在几千台服务器上，横跨多个数据中心。因此，需要一些可以理解这个复杂系统的行为，用于分析性能找出性能问题的工具。</p> </blockquote> <h3 id="12-一个请求的链路图示">1.2 一个请求的链路图示</h3> <p>Dapper 论文里的一张图，表示一个请求可能经过的路径节点：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8e9aad326260fc482c3b22d959bd5783.jpg" alt="微服务架构学习与思考(09)：分布式链路追踪系统-dapper论文学习"></p> <p>(图 1：这个路径由user用户的RequestX发起请求，穿过一个简单的服务系统。用字母标识的节点代表分布式系统中的不同处理过程,</p> <p>来自：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://research.google/pubs/pub36356/"  target="_blank" rel="nofollow">https://research.google/pubs/pub36356/</a>)</p> <blockquote> <p>这张图是由 5 台服务器提供相关的一个服务，它包含：A-前端，B,C-2个服务中间层，以及 2 个后端 D 和 E。</p> <p>当一个用户发起一个请求，首先是到达前端 A， 然后发送 2 个 RPC 请求到服务器 B 和 C。B 马上会响应请求，但是 C 需要和</p> <p>后端的 D 和 E 交互之后在返回给 A，最后由 A 来响应最初的请求。</p> </blockquote> <p>上图的调用链经过了不同的系统，这个系统可能是不同团队维护，并且使用不同的语言开发。如果服务中出现了问题，比如请求异常，请求超时，那么怎么定位是哪个系统的哪一步出现了问题呢？</p> <p>还有，对系统的监控是 7x24 小时不间断的。持续的对系统进行监控。</p> <h2 id="二dapper-的分布式追踪">二、Dapper 的分布式追踪</h2> <h3 id="21-怎么定义图1链路信息">2.1 怎么定义图1链路信息</h3> <p>对于上面图 1 的一个请求响应路径，怎么定义、怎么能实现分布式追踪呢？</p> <blockquote> <p>简单实现：为服务器每一次的发送和接收请求来收集追踪标识（message identifiers）和时间戳（timestamped events）。</p> </blockquote> <p>从入口开始发起 Request 的请求者（图 1 中的 RequestX），与这个请求者相关的信息都要关联上，并记录下来分析链路关系，有什么好的方案呢？</p> <p>2 种方案：黑盒（black-box）和基于标注（annotation-based）的监控方案。</p> <p><strong>黑盒方案：</strong></p> <blockquote> <p>假定需要追踪的除了上述信息之外没有额外的信息，这样使用统计回归技术来推断两者之间的关系。</p> </blockquote> <p><strong>基于标注方案：</strong></p> <blockquote> <p>依赖于应用程序或中间件明确地标记一个全局 ID，从而连接每一条记录与发起者的请求。</p> </blockquote> <p></p> <p>2种方案的比较：</p> <p>黑盒方案比标注方案跟轻便，但是它需要更多的数据，以获得足够的精度，因为他们依赖于统计推论。</p> <p>标注方案最主要缺点，需要代码植入。</p> <p></p> <p>Google的选择：</p> <p>在 google 的生产环境中，所有的应用程序都使用相同的线程模型，控制流和RPC系统，他们可以把代码植入限制在一个很小的通用组件库中，从而实现了监测系统的应用对开发人员是有效且透明。</p> <p>dapper 的追踪架构是内嵌在 RPC 调用链的属性结构里。当然这个调用链路监控，还可以追踪其他行为，比如外界的 HTTP 请求，Gmail的 SMTP 会话和外部对 SQL 服务器查询等。</p> <h3 id="22-dapper-数据结构模型">2.2 Dapper 数据结构模型</h3> <p>1、树形结构，追踪树</p> <p>2、Span 以及 Annotation</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cc240f68c526d4231092ab9abb613c33.jpg" alt="微服务架构学习与思考(09)：分布式链路追踪系统-dapper论文学习"></p> <p>（图 2：来自dapper论文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://research.google/pubs/pub36356/%EF%BC%89"  target="_blank" rel="nofollow">https://research.google/pubs/pub36356/）</a></p> <blockquote> <ol> <li> <p>图 2，是一个树形结构，每一个树节点是整个架构的基本单元，这个节点单元叫做 span，每个节点 span 都有一个唯一的 id：span id，还有一个 name：span name。</p> </li> <li> <p>节点之间的关系可以用父子来表示，parent id 和 span id，parent id 就是它上一个 span 的 id；如果一个 span 没有父 id，那么它就是根节点，root span。</p> </li> <li> <p>所有的 span 都有一个追踪请求 id，叫 trace id，作用是标识出一次完整请求。这个 trace id 是全局唯一。</p> </li> <li> <p>最后，每个 span 还有一个 Annotations，记录每个 span 中的其他相关信息，比如 span 的开始时间戳，结束时间戳，发送信息等等信息，客户端和服务端信息都可以记录。</p> </li> </ol> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f77a586a68edd6eaeb6a4e08aeab2bae.jpg" alt="微服务架构学习与思考(09)：分布式链路追踪系统-dapper论文学习"></p> <p>（图3：表示一个单独的 span 结构信息图，来自 dapper 论文）</p> <pre><code class="language-go">// 伪码表示结构 struct span {     id        // 当前 span 的 id     parent_id // 父 id，上一层 span id     name      // 当前 span 的 name     trace_id  // 标识一次完整请求的 trace_id     Annotations []annotation // 表示 span 中的其它相关信息 }  struct annotation {     star_time  // 此次 span 开始时间戳     end_time   // 此次 span 结束时间戳     client_send_info  // 客户端发送信息     client_recv_info  // 客户端接收信息     server_send_info  // 服务端发送信息     .. ... }</code></pre> <h3 id="23-怎么把追踪代码值入相关程序中">2.3 怎么把追踪代码值入相关程序中</h3> <p>dapper 里面叫<strong>植入点</strong>。</p> <p>怎么把相关追踪代码放入到程序中？并且能比较少的改动代码，又能达到下面三个设计目标。</p> <p> dapper 里提了 3 个设计目标：</p> <ol> <li>低损耗</li> </ol> <blockquote> <p>追踪系统对在线服务的影响最小化。因为在一些性能比较敏感的服务里，一点点的性能消耗也可能影响用户体验。</p> </blockquote> <ol start="2"> <li>对应用程序透明</li> </ol> <blockquote> <p>对于应用程序来说，它根本觉察不到追踪系统的存在。</p> <p>一个追踪系统，如果需要应用开发者主动配合植入追踪代码，那么追踪系统的存在不仅会导致众多额外代码的修改，最重要的是可能会使</p> <p>运行良好的系统产生bug。</p> </blockquote> <ol start="3"> <li>扩展性</li> </ol> <blockquote> <p>google 在未来几年随着业务规模增长而扩展集群规模，追踪系统也能够应对这种情况。</p> </blockquote> <p> 对于上面 3 点中最重要的一点就是追踪系统对**应用程序透明**。</p> <p>那怎么做才能对应用程序透明？</p> <blockquote> <p>Dapper 可以近乎零浸入的成本对应用程序链路进行追踪，得益于 google 的服务设施依赖几个少数的通用组件库，只要改造这</p> <p>几个组件库就可以了。比如 google 中几乎所有进程间通信都是建立在 C++ 和 Java 开发的 RPC 框架上，那么我们只用改造这个 RPC 框架，追踪系统就能在依赖这个 RPC 框架的应用程序里生效。</p> </blockquote> <p>当然 dapper 也允许应用开发人员给链路追踪系统添加额外的信息，以监控更高级别的系统行为，或帮助调试问题。它允许用户通过一个简单的 API 定义带时间戳的 Annotation。</p> <h3 id="24-采样率和追踪信息的收集">2.4 采样率和追踪信息的收集</h3> <p>低损耗是 dapper 的一个设计目标，所以 dapper 对系统链路信息收集工作对基本组件性能损耗要尽可能的小。还有就是遇到大量请求时只记录其中一小部分。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/1e4c9ff04a7e717170f526d0919658cd.jpg" alt="微服务架构学习与思考(09)：分布式链路追踪系统-dapper论文学习"></p> <p>(图4：dapper 收集管道总览，来自<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://research.google/pubs/pub36356/"  target="_blank" rel="nofollow">dapper</a> 论文)</p> <p>dapper 追踪系统记录和收集信息过程分为三个阶段（如上图4）：</p> <blockquote> <ol> <li>span 的数据写入(1)本地日志文件，</li> <li>然后 dapper 的 daemon 进程和收集组件把追踪的数据从生产环境读取处理(2)。</li> <li>最后一些(3)的 bigtable 仓库中。</li> </ol> </blockquote> <p> 看上面图4：一次追踪信息被存储为 bigtable 的一行，每一列相当于一个 span。</p> <h2 id="引用参考">引用参考</h2> <ul> <li> <p>dapper 论文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://research.google/pubs/pub36356/%EF%BC%8C"  target="_blank" rel="nofollow">https://research.google/pubs/pub36356/，</a></p> <p>作者：Benjamin H. Sigelman, Luiz Andr´e Barroso, Mike Burrows, Pat Stephenson, Manoj Plakal, Donald Beaver, Saul Jaspan, Chandan Shanbhag</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://bigbully.github.io/Dapper-translation/"  target="_blank" rel="nofollow">https://bigbully.github.io/Dapper-translation/</a> 中文翻译版，bigbully</li> </ul> </li> <li> <p>X-Trace 论文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.usenix.org/legacy/event/nsdi07/tech/full_papers/fonseca/fonseca_html/index.html%EF%BC%8C"  target="_blank" rel="nofollow">https://www.usenix.org/legacy/event/nsdi07/tech/full_papers/fonseca/fonseca_html/index.html，</a></p> <p>作者：Rodrigo Fonseca  George Porter  Randy H. Katz  Scott Shenker  Ion Stoica</p> </li> <li> <p>Magpie 论文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.usenix.org/legacy/publications/library/proceedings/hotos03/tech/full_papers/barham/barham_html/paper.html%EF%BC%8C%E4%BD%9C%E8%80%85%EF%BC%9APaul"  target="_blank" rel="nofollow">https://www.usenix.org/legacy/publications/library/proceedings/hotos03/tech/full_papers/barham/barham_html/paper.html，作者：Paul</a> Barham, Rebecca Isaacs, Richard Mortier, and Dushyanth Narayanan<br /> Microsoft Research Ltd., Cambridge, UK.</p> </li> <li> <p>Pinpoint 论文：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://roc.cs.berkeley.edu/papers/roc-pinpoint-ipds.pdf%EF%BC%8C"  target="_blank" rel="nofollow">http://roc.cs.berkeley.edu/papers/roc-pinpoint-ipds.pdf，</a></p> <p>作者：Mike Y. Chen, Emre Kıcıman<em>, Eugene Fratkin</em>, Armando Fox*, Eric Brewer</p> <p>(Computer Science Division, University of California, Berkeley)</p> <p>(*Computer Science Department, Stanford University)</p> </li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20685.htm">已解决：TypeError: Cannot read properties of undefined (reading ‘value‘)</a></p>
+                                        <p>下一个：<a href="/news/article-21146.htm">和田宠物医院污水处理价格多少（宠物店污水处理设备）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-node-share-links.htm" title="11月17日→21.5M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月17日→21.5M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-mihomo-node-share.htm" title="12月5日→19.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月5日→19.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe-links.htm" title="10月29日→18.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月29日→18.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21146.htm" title="和田宠物医院污水处理价格多少（宠物店污水处理设备）">和田宠物医院污水处理价格多少（宠物店污水处理设备）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-node-subscribe-links.htm" title="12月1日→22.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月1日→22.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-mihomo-node-github.htm" title="11月30日→20.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月30日→20.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-mihomo-node.htm" title="10月13日→20.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月13日→20.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-mihomo-node.htm" title="10月18日→22.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月18日→22.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-mihomo-github.htm" title="11月19日→19.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月19日→19.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-mihomo-github.htm" title="11月5日→18.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月5日→18.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
