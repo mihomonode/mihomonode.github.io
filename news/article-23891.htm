@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-23891.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pyhton深度学习基于pytorch——创建Tensor和修改Tensor形状</title>
+        <meta name="description" content="如果对Tensor的概念理解不清楚请参考我的上一篇文章。 先介绍Tensor的.add()和.add_()方法： 1）不修改自身数据，如x.add(y),x的数据不变，返回一个新的tensor。 （2" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                                                <a href="/">
+                                    <span>Mihomo Node</span>
+                                </a>
+                                                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                        <li>
+                                <a href="#"><span>关于</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>联系</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">pyhton深度学习基于pytorch——创建Tensor和修改Tensor形状</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p>如果对Tensor的概念理解不清楚请参考我的上一篇文章。</p> <p>先介绍Tensor的.add()和.add_()方法：</p> <p>1）不修改自身数据，如x.add(y),x的数据不变，返回一个新的tensor。<br /> （2）修改自身数据，如x.add_(y)(运行符带下划线后缀)，运算结果存在x中，x被修改。</p> <pre><code class="language-python">import torch   x=torch.tensor([1,2]) y=torch.tensor([3,4]) z=x.add(y) print(z) print(x) x.add_(y) print(x)</code></pre> <p>运行结果：<br /> tensor([4, 6])<br /> tensor([1, 2])<br /> tensor([4, 6])&nbsp;</p> <h2>一、创建Tensor</h2> <pre><code class="language-python">import torch #根据list数据生成tensor aa=torch.Tensor([1,2,3,4,5,6]) print(aa) #tensor([1., 2., 3., 4., 5., 6.]) #根据指定形状生成tensor bb=torch.Tensor(2,3) print(bb) # tensor([[0., 0., 0.], #         [0., 0., 0.]]) #根据给定的tensor的形状 t=torch.Tensor([[1,2,3],[4,5,6]]) #查看tensor的形状 t.size() #shape与size()等价方式 t.shape #根据已有形状创建tensor cc=torch.Tensor(t.size()) print(cc) # tensor([[8.4490e-39, 9.6429e-39, 9.2755e-39], #         [1.0286e-38, 9.0919e-39, 8.9082e-39]])  #根据一定规则，自动生成tensor的一些例子。  # 生成一个单位矩阵 a=torch.eye(2, 2) print(a) # tensor([[1., 0.], #         [0., 1.]]) # 自动生成全是0的矩阵 b=torch.zeros(2, 3) print(b) # tensor([[0., 0., 0.], #         [0., 0., 0.]]) # 根据规则生成数据 c=torch.linspace(1, 10, 4) print(c) #tensor([ 1.,  4.,  7., 10.]) # 生成满足均匀分布随机数 d=torch.rand(2, 3) print(d) # tensor([[0.0198, 0.5116, 0.3734], #         [0.0397, 0.4600, 0.7310]]) # 生成满足标准分布随机数 f=torch.randn(2, 3) print(f) # tensor([[ 0.7431, -1.1317, -0.0973], #         [ 0.1756,  0.2788,  0.2570]]) # 返回所给数据形状相同，值全为0的张量 e=torch.zeros_like(torch.rand(2, 3)) print(e) # tensor([[0., 0., 0.], #         [0., 0., 0.]])</code></pre> <p><span style="color:#ed7976;">创建的tensor中的数据都是float。</span></p> <p>创建tensor使用了tensor()和Tensor()两种方法。</p> <p><span style="background-color:#fe2c24;">注意torch.Tensor与torch.tensor的几点区别</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;①torch.Tensor是torch.empty和torch.tensor之间的一种混合，但是，当传入数据时，torch.Tensor使用全局默认dtype（FloatTensor），torch.tensor从数据中推断数据类型。<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②torch.tensor(1)返回一个固定值1，而torch.Tensor(1)返回一个大小为1的张量，它是随机初始化的值。</p> <pre><code class="language-python">import torch t1=torch.Tensor(1) t2=torch.tensor(1) print("t1的值{},t1的数据类型{}".format(t1,t1.type())) print("t2的值{},t2的数据类型{}".format(t2,t2.type()))</code></pre> <p>结果：</p> <p>t1的值tensor([3.5731e-20]),t1的数据类型torch.FloatTensor<br /> t2的值1,t2的数据类型torch.LongTensor</p> <p><span style="background-color:#fe2c24;">3.5731e-20是随机生成的大小为1的张量。</span></p> <h2>二、修改Tensor形状</h2> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221228/39f66730541720daa47de8927fe16426.jpg"></p> <pre><code class="language-python">import torch  #coco # 生成一个形状为2x3的矩阵 torch.manual_seed(1) x = torch.randn(2, 3) print(x) # tensor([[ 0.6614,  0.2669,  0.0617], #         [ 0.6213, -0.4519, -0.1661]]) # 查看矩阵的形状 x.size()  # 结果为torch.Size([2, 3]) # 查看x的维度 x.dim()  # 结果为2 # 把x变为3x2的矩阵 x.view(3, 2) # 把x展平为1维向量 y = x.view(-1) print(y) # tensor([ 0.6614,  0.2669,  0.0617,  0.6213, -0.4519, -0.1661]) y.shape print(y.shape) # 添加一个维度 z = torch.unsqueeze(y, 0) #输出是6 # 查看z的形状 z.size()  # 结果为torch.Size([1, 6]) # 计算Z的元素个数 z.numel()  # 结果为6</code></pre> <p><span style="color:#fe2c24;">【说明】torch.view与torch.reshpae的异同</span><br /> ①reshape()可以由torch.reshape(),也可由torch.Tensor.reshape()调用。view()只可由torch.Tensor.view()来调用。<br /> ②对于一个将要被view的Tensor，新的size必须与原来的size与stride兼容。否则，在view之前必须调用contiguous()方法。<br /> ③同样也是返回与input数据量相同，但形状不同的tensor。若满足view的条件，则不会copy，若不满足，则会copy<br /> ④<span style="color:#ed7976;">如果您只想重塑张量，请使用torch.reshape。 如果您还关注内存使用情况并希望确保两个张量共享相同的数据，请使用torch.view。</span></p> <p><u>使用contiguous()&nbsp;</u><br /> 如果想要断开这两个变量之间的依赖（x本身是contiguous的），就要使用contiguous()针对x进行变化，感觉上就是我们认为的深拷贝。</p> <p>&nbsp;当调用contiguous()时，会强制拷贝一份tensor，让它的布局和从头创建的一模一样，但是两个tensor完全没有联系。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-23425.htm">宠物领养要给钱吗（领养宠物需要给钱吗）</a></p>
+                                        <p>下一个：<a href="/news/article-23892.htm">vue的axios两种导入方法</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20685.htm" title="已解决：TypeError: Cannot read properties of undefined (reading ‘value‘)">已解决：TypeError: Cannot read properties of undefined (reading ‘value‘)</a></li>
+                        <li class="py-2"><a href="/news/article-23892.htm" title="vue的axios两种导入方法">vue的axios两种导入方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-node-share.htm" title="9月24日→20M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">9月24日→20M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20230.htm" title="动物美容师的图片素材（ppt动物图片素材）">动物美容师的图片素材（ppt动物图片素材）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-mihomo-node-share.htm" title="10月14日→22.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月14日→22.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-mihomo-node-share.htm" title="10月17日→21.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月17日→21.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-mihomo-node.htm" title="10月18日→22.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月18日→22.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-latest-mihomo-node.htm" title="11月26日→18.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月26日→18.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21607.htm" title="常州宠颐生动物医院电话号码（常州宠颐生美多格动物医院）">常州宠颐生动物医院电话号码（常州宠颐生美多格动物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-22974.htm" title="丹阳有没有宠物市场（丹阳口碑最好的宠物医院）">丹阳有没有宠物市场（丹阳口碑最好的宠物医院）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
