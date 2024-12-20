@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>C# 扩展方法简介</title>
         <meta name="description" content="C# 中提供一个非常实用的供能，扩展方法（Extension method），通过扩展方法，我们可以对已有类型做自己想做的相关扩展。 扩展方法是通过额外的静态方法扩展现有的类型。 &nbsp; 扩展方" />
-        <link rel="icon" href="__ADDON__/img/mihomonode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
     <!-- Vendor CSS -->
     <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
@@ -180,7 +180,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <p>C# 中提供一个非常实用的供能，扩展方法（Extension method），通过扩展方法，我们可以对已有类型做自己想做的相关扩展。</p> <p>扩展方法是通过额外的静态方法扩展现有的类型。</p> <p>&nbsp;</p> <p>扩展方法是在一个静态类中定义的，并且扩展方法也要是静态方法，并且扩展方法的第一个参数为要扩展的类型，必须附加一个this关键字。</p> <p>&nbsp;</p> <p>来看一个简单的扩展方法：</p> <pre><code class="language-html">namespace MethodExtend {     static class ExtendMethodTest     {         public static void testExtendMethod(this int i)         {             Console.WriteLine("Extend Method Test");         }          public static void testExtendMethod(this int i, int index)         {             Console.WriteLine(-index);         }          public static void testExten2(this int i)         {             Console.WriteLine("extend method test");         }     } }</code></pre> <p> &nbsp;</p> <p>上面这个类中的三个方法都是扩展方法，this int i表明要扩展的类型为int类型。this 修饰的是 int ,表明这个扩展方法是扩展的int 类型。</p> <p>&nbsp;</p> <p>下面看一下扩展方法的引用：</p> <pre><code class="language-html">using System; using System.Collections.Generic; using System.Linq; using System.Text;  namespace MethodExtend {     class Program     {         static void Main(string[] args)         {             int age = 25;             age.testExtendMethod();              Console.WriteLine("///");             int t = 6;             t.testExtendMethod(t);                 }     } }</code></pre> <p> C#编译器会自动检测当前在作用域中的所有static类，找出为一个给定的类型定义的扩展方法。</p> <p>如果你自己写的扩展方法的命名空间不在当前命名空间中， 只要自己添加相对应的命名空间就可以了。</p> <p>&nbsp;</p> <p>如果扩展方法包含参数，就可以在要扩展的类型（即第一个参数）以后顺序的添加扩展方法对应的参数既可，在调用的时候填写相应参数，不过请记住，第一个参数为要扩展的类型，在填写实参的时候并没有这个参数。</p> </p></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>C# 中提供一个非常实用的供能，扩展方法（Extension method），通过扩展方法，我们可以对已有类型做自己想做的相关扩展。</p> <p>扩展方法是通过额外的静态方法扩展现有的类型。</p> <p>&nbsp;</p> <p>扩展方法是在一个静态类中定义的，并且扩展方法也要是静态方法，并且扩展方法的第一个参数为要扩展的类型，必须附加一个this关键字。</p> <p>&nbsp;</p> <p>来看一个简单的扩展方法：</p> <pre><code class="language-html">namespace MethodExtend {     static class ExtendMethodTest     {         public static void testExtendMethod(this int i)         {             Console.WriteLine("Extend Method Test");         }          public static void testExtendMethod(this int i, int index)         {             Console.WriteLine(-index);         }          public static void testExten2(this int i)         {             Console.WriteLine("extend method test");         }     } }</code></pre> <p> &nbsp;</p> <p>上面这个类中的三个方法都是扩展方法，this int i表明要扩展的类型为int类型。this 修饰的是 int ,表明这个扩展方法是扩展的int 类型。</p> <p>&nbsp;</p> <p>下面看一下扩展方法的引用：</p> <pre><code class="language-html">using System; using System.Collections.Generic; using System.Linq; using System.Text;  namespace MethodExtend {     class Program     {         static void Main(string[] args)         {             int age = 25;             age.testExtendMethod();              Console.WriteLine("///");             int t = 6;             t.testExtendMethod(t);                 }     } }</code></pre> <p> C#编译器会自动检测当前在作用域中的所有static类，找出为一个给定的类型定义的扩展方法。</p> <p>如果你自己写的扩展方法的命名空间不在当前命名空间中， 只要自己添加相对应的命名空间就可以了。</p> <p>&nbsp;</p> <p>如果扩展方法包含参数，就可以在要扩展的类型（即第一个参数）以后顺序的添加扩展方法对应的参数既可，在调用的时候填写相应参数，不过请记住，第一个参数为要扩展的类型，在填写实参的时候并没有这个参数。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-20230.htm">动物美容师的图片素材（ppt动物图片素材）</a></p>
                                         <p>下一个：<a href="/news/article-20685.htm">已解决：TypeError: Cannot read properties of undefined (reading ‘value‘)</a></p>
@@ -193,16 +194,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-24-mihomo-node-share.htm" title="10月24日→22.9M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月24日→22.9M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-today-mihomo-node.htm" title="9月30日→18.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">9月30日→18.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-mihomo-github.htm" title="10月28日→19.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月28日→19.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-mihomo-github.htm" title="11月11日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月11日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-mihomo-windows.htm" title="10月26日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月26日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-22-mihomo-node-github.htm" title="9月22日→18.4M/S|2024年最新免费节点Mihomo Node订阅链接地址">9月22日→18.4M/S|2024年最新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-20684.htm" title="C# 扩展方法简介">C# 扩展方法简介</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-mihomo-node.htm" title="10月20日→19.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月20日→19.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-node-share.htm" title="9月24日→20M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">9月24日→20M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-20230.htm" title="动物美容师的图片素材（ppt动物图片素材）">动物美容师的图片素材（ppt动物图片素材）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe-links.htm" title="10月25日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月25日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22976.htm" title="猫三联疫苗间隔多久打一次（猫三联疫苗间隔多少天）">猫三联疫苗间隔多久打一次（猫三联疫苗间隔多少天）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-today-mihomo-node.htm" title="10月23日→20M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月23日→20M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26239.htm" title="开宠物店有前途吗（开宠物店有前途吗现在）">开宠物店有前途吗（开宠物店有前途吗现在）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-high-speed-nodes.htm" title="12月11日→19.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月11日→19.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-node-share.htm" title="11月29日→21.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月29日→21.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-mihomo-node-share.htm" title="10月17日→21.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月17日→21.4M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22974.htm" title="丹阳有没有宠物市场（丹阳口碑最好的宠物医院）">丹阳有没有宠物市场（丹阳口碑最好的宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-mihomo-node-github.htm" title="11月15日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月15日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-mihomo-node-github.htm" title="12月19日→19.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月19日→19.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -214,7 +215,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -244,6 +245,15 @@
                             <div class="footer-bottom-left">
                                 <div class="footer-copyright">
                                     <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                                         <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
                                     </p>
                                 </div>
