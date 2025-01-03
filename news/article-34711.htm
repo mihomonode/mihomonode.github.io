@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-34711.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解决Error response from daemon: Get “https://registry-1.docker.io/v2/“: read: connection refused问题</title>
+        <meta name="description" content="在用docker容器下载rabbitmq时出现报错如下 Error response from daemon: Get “https://registry-1.docker.io/v2/”: dial" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                                                <a href="/">
+                                    <span>Mihomo Node</span>
+                                </a>
+                                                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                        <li>
+                                <a href="#"><span>关于</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>联系</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">解决Error response from daemon: Get “https://registry-1.docker.io/v2/“: read: connection refused问题</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>在用docker容器下载rabbitmq时出现报错如下<br /> Error response from daemon: Get “https://registry-1.docker.io/v2/”: dial tcp: lookup registry-1.docker.io on [::1]:53: read udp [::1]:50086-&gt;[::1]:53: read: connection refused<br /> 因为之前用docker下载过redis，mysql,nginx都没出现过问题，这次下载消息队列中间件却出现问题<br /> 当我ping IP地址的时候可以ping通，但是ping域名却不可以。上网搜了好多答案，大多说是由于dns服务器没有配置导致的问题。 可以直接在系统中点击设置里面的网络管理，然后添加dns服务器就可以了。<br /><strong>1、</strong> vi /ect/syconfig/network-scripts/ifcfg-ens33<br /> 往配置文件里最后一行写入<br /> DNS1=8.8.8.8<br /><strong>2、</strong> vi /etc/resolv.conf<br /> 同样 往配置文件里最后一行写入<br /> nameserver 8.8.8.8<br /><strong>3、</strong> 重启网络服务和docker</p> <pre><code class="prism language-powershell">service network restart</code></pre> <pre><code class="prism language-powershell">service docker restar</code></pre> <p>使用docker 命令拉取rabbitmq又出现如下错误<br /> Error response from daemon: Get “https://index.docker.io/v1/search?q=redis&amp;n=25”: dial tcp: lookup index.docker.io on 8.8.8.8:53: dial udp 8.8.8.8:53: connect: network is unreachable<br /> 此时发现ping8.8.8.8还是ping不通，而且ping www.baidu.com 也不行<br /> 查看Linux的ens33配置</p> <pre><code class="prism language-powershell">vi<span class="token operator">/</span>etc<span class="token operator">/</span>sysconfig<span class="token operator">/</span>network<span class="token operator">-</span>scripts<span class="token operator">/</span>ifcfg<span class="token operator">-</span>ens33</code></pre> <p>这是我的一些配置</p> <pre><code class="prism language-powershell"><span class="token function">TYPE</span>=Ethernet PROXY_METHOD=none BROWSER_ONLY=no BOOTPROTO=none DEFROUTE=yes IPADDR=192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>55<span class="token punctuation">.</span>132 IPV4_FAILURE_FATAL=no IPV6INIT=yes IPV6_AUTOCONF=yes IPV6_DEFROUTE=yes IPV6_FAILURE_FATAL=no IPV6_ADDR_GEN_MODE=stable<span class="token operator">-</span>privacy NAME=ens33 UUID=59e02662<span class="token operator">-</span>6456<span class="token operator">-</span>4acf<span class="token operator">-</span>94fe<span class="token operator">-</span>c81dcfaeac00 DEVICE=ens33 ONBOOT=yes PREFIX=24 DNS1=8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8<span class="token punctuation">.</span>8</code></pre> <p>下面这是完整的配置信息</p> <pre><code class="prism language-powershell"><span class="token function">TYPE</span>=Ethernet<span class="token comment">#网卡类型:为以太网</span> PROXY_ METHOD=none<span class="token comment">#代理方式:关闭状态</span> BROWSER_ ONLY=no<span class="token comment">#只是浏览器:否</span> BOOTPROTO=static<span class="token comment">#网卡协议DHCP动态主机配置协议</span> DEFROUTE=yes<span class="token comment">#默认路由:是</span> IPV4_ FAILURE_ FATAL=no<span class="token comment">#否开启IPV4致命错误检测:否</span> PV6INIT=yes<span class="token comment"># IPV6是否自动初始化:是</span> IPV6_ AUTOCONF=<span class="token string">"yes"</span>IPV6是否自动配置:是 IPV6_ ADDR _GEN _MODE=stable<span class="token operator">-</span> privacy<span class="token comment"># IPV6地址生成模型</span> stable<span class="token operator">-</span>privacy是一种生成IPV6的策略 NAME=ens33<span class="token comment">#网卡名字(与DEVICE- 致)</span> UUID=6ac17c2b<span class="token operator">-</span>473e<span class="token operator">-</span><span class="token operator">-</span>4894<span class="token operator">-</span>811b<span class="token operator">-</span>4940ee7bf455<span class="token comment">#唯一标识码</span> DEVICE=ens33<span class="token comment">#网卡设备</span> ONBOOT=yes<span class="token comment">#否激活网卡</span> IPADDR=192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>20<span class="token punctuation">.</span>20<span class="token comment">#ip地址(static设置 )</span> NETMASK=255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>255<span class="token punctuation">.</span>0<span class="token comment">#子网掩码</span> GATEWAY= 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>20<span class="token punctuation">.</span>2<span class="token comment">#网关</span> DNS1=114<span class="token punctuation">.</span>114<span class="token punctuation">.</span>114<span class="token punctuation">.</span>114<span class="token comment">#dns地址解析</span></code></pre> <p>发现少了BOOTPROTO=static #网卡协议DHCP动态主机配置协议、NETMASK=255.255.255.0#子网掩码与GATEWAY= 192.168.55.2#网关关键信息<br /> 子网IP、子网掩码、网关IP三项信息可以通过虚拟机上看到，<br /><strong>打开编辑&gt;虚拟网络编辑器&gt;NAT设置</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/853efccdd5a72919d5e1add9531e8829.jpg" alt="解决Error response from daemon: Get “https://registry-1.docker.io/v2/“: read: connection refused问题"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/e57ba919cb8457106741ae6dc26cabeb.jpg" alt="解决Error response from daemon: Get “https://registry-1.docker.io/v2/“: read: connection refused问题"><br /> 记住NAT设置中的子网IP、子网掩码、网关IP三项往ens33配置文件里填写即可。<br /> 最后重启网络服务service network restart就可以成功ping通外网，解决网络问题。<br /> 解决完拒绝网络连接问题就可以通过docker成功安装rabbitmq了。</p> <pre><code class="prism language-powershell">docker run<span class="token operator">-</span>d<span class="token operator">--</span>name rabbitmq<span class="token operator">-</span>p 5671:5671<span class="token operator">-</span>p 5672:5672<span class="token operator">-</span>p 4369:4369<span class="token operator">-</span>p 25672:25672<span class="token operator">-</span>p 15671:15671<span class="token operator">-</span>p 15672:15672 rabbitmq:management</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34235.htm">宠物领养证如何办理手续流程图解（宠物领养程序怎么领养）</a></p>
+                                        <p>下一个：<a href="/news/article-34713.htm">宠物粮食加工厂设备生产厂家有哪些呢视频（宠物粮食加工厂设备生产厂家有哪些呢视频介绍）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-mihomo-node-github.htm" title="12月30日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月30日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-mihomo-windows.htm" title="11月3日→19.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月3日→19.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-node-share.htm" title="11月29日→21.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月29日→21.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-node-share.htm" title="11月22日→21.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月22日→21.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-today-mihomo-node.htm" title="11月7日→23M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月7日→23M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22521.htm" title="中国最大的宠物粮生产厂家是哪家呢（中国宠物粮厂家批发网）">中国最大的宠物粮生产厂家是哪家呢（中国宠物粮厂家批发网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-latest-mihomo-node.htm" title="11月26日→18.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月26日→18.8M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-today-mihomo-node.htm" title="11月4日→20.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月4日→20.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→20.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月14日→20.1M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33278.htm" title="让猫挠了轻微出血用打疫苗吗多少钱（让猫挠了出血怎么消毒）">让猫挠了轻微出血用打疫苗吗多少钱（让猫挠了出血怎么消毒）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
