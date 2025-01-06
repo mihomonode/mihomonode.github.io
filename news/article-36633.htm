@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-36633.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>【UWP】实现一个波浪进度条</title>
+        <meta name="description" content="好久没写 blog 了，一个是忙，另外一个是觉得没啥好写。废话不多说，直接上效果图：   可能看到这波浪线你觉得会很难，但看完这篇 blog 后应该你也会像我一样恍然大悟。图上的图形，我们可以考虑是由" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                                                <a href="/">
+                                    <span>Mihomo Node</span>
+                                </a>
+                                                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                        <li>
+                                <a href="#"><span>关于</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>联系</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">【UWP】实现一个波浪进度条</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<p>好久没写 blog 了，一个是忙，另外一个是觉得没啥好写。废话不多说，直接上效果图：</p> <p><img fetchpriority="high" decoding="async" src="http://img.555519.xyz/uploads3/20220510/404fce0e6affec8977e1c03a1e4c1ce9.jpg" alt="【UWP】实现一个波浪进度条"></p> <p id="1649048519086"> <p>可能看到这波浪线你觉得会很难，但看完这篇 blog 后应该你也会像我一样恍然大悟。图上的图形，我们可以考虑是由 3 条直线和 1 条曲线组成。直线没什么难的，难的是曲线。在曲线这一领域，我们有一种特殊的曲线，叫贝塞尔曲线。</p> <p>在上面这曲线，我们可以对应到的是三次方贝塞尔曲线，它由 4 个点控制，起点、终点和两个控制点。这里我找了一个在线的 demo：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bezier-curve.com/"  rel="nofollow">https://www.bezier-curve.com/</a></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4ffffb2d2649c8c784821ae91578fe0b.jpg" alt="【UWP】实现一个波浪进度条"></p> <p>调整控制点 1（红色）和控制点 2（蓝色）的位置我们可以得到像最开始的图那样的波浪线了。</p> <p>另外，我们也可以注意到一个性质，假如起点、终点、控制点 1 和控制点 2 都在同一条直线上的话，那么我们这条贝塞尔曲线就是一条直线。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ae03fc3c422933e88e7d46efe4bd3a30.jpg" alt="【UWP】实现一个波浪进度条"></p> <p>按最开始的图的动画，我们最终状态是一条直线，显然就是需要这 4 个点都在同一直线上，然而在动画过程中，我们需要的是一条曲线，也就是说动画过程中它们不会在同一直线上了。我们也可以注意到，在波浪往上涨的时候，左边部分是凸起来的，而右半部分是凹进去的。这对应了控制点 1 是在直线以上，而控制点 2 在直线以下。那么如何在动画里做到呢，很简单，使用缓动函数就行了，让控制点 1 的值更快到达最终目标值，让控制点 2 的值更慢到达最终目标值即可。（当然，单纯使用时间控制也行，在这里我还是用缓动函数）</p> <p>理论已经有了，现在让我们开始编码。</p> <p>新建一个 UWP 项目，然后我们创建一个模板控件，叫 WaveProgressBar。之所以不继承自 ProgressBar，是因为 ProgressBar 上有一个 IsIndeterminate 属性，代表不确定状态，我们的 WaveProgressBar 并不需要，简单起见，我们还是从模板控件开始。</p> <p><img loading="lazy" decoding="async" src="http://img.555519.xyz/uploads3/20220510/71f434e4409f82267798741ac67c54e4.jpg" alt="【UWP】实现一个波浪进度条"></p> <p>接下来我们修改 Generic.xaml 中的控件模板代码</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Style</span><span style="color: rgba(255, 0, 0, 1)">TargetType</span><span style="color: rgba(0, 0, 255, 1)">="local:WaveProgressBar"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Setter</span><span style="color: rgba(255, 0, 0, 1)">Property</span><span style="color: rgba(0, 0, 255, 1)">="Background"</span><span style="color: rgba(255, 0, 0, 1)"> Value</span><span style="color: rgba(0, 0, 255, 1)">="LightBlue"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Setter</span><span style="color: rgba(255, 0, 0, 1)">Property</span><span style="color: rgba(0, 0, 255, 1)">="Template"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Setter.Value</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">ControlTemplate</span><span style="color: rgba(255, 0, 0, 1)">TargetType</span><span style="color: rgba(0, 0, 255, 1)">="local:WaveProgressBar"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Viewbox</span><span style="color: rgba(255, 0, 0, 1)">Stretch</span><span style="color: rgba(0, 0, 255, 1)">="Fill"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Path</span><span style="color: rgba(255, 0, 0, 1)">Width</span><span style="color: rgba(0, 0, 255, 1)">="100"</span><span style="color: rgba(255, 0, 0, 1)">                             Height</span><span style="color: rgba(0, 0, 255, 1)">="100"</span><span style="color: rgba(255, 0, 0, 1)">                             Fill</span><span style="color: rgba(0, 0, 255, 1)">="</span><span style="color: rgba(128, 128, 0, 1)">{TemplateBinding Background}</span><span style="color: rgba(0, 0, 255, 1)">"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Path.Data</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">PathGeometry</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">PathGeometry.Figures</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">PathFigure</span><span style="color: rgba(255, 0, 0, 1)">StartPoint</span><span style="color: rgba(0, 0, 255, 1)">="0,100"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">PathFigure.Segments</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">LineSegment</span><span style="color: rgba(255, 0, 0, 1)">x:Name</span><span style="color: rgba(0, 0, 255, 1)">="PART_LineSegment"</span><span style="color: rgba(255, 0, 0, 1)"> Point</span><span style="color: rgba(0, 0, 255, 1)">="0,50"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">BezierSegment</span><span style="color: rgba(255, 0, 0, 1)">x:Name</span><span style="color: rgba(0, 0, 255, 1)">="PART_BezierSegment"</span><span style="color: rgba(255, 0, 0, 1)">                                                     Point1</span><span style="color: rgba(0, 0, 255, 1)">="35,25"</span><span style="color: rgba(255, 0, 0, 1)">                                                     Point2</span><span style="color: rgba(0, 0, 255, 1)">="65,75"</span><span style="color: rgba(255, 0, 0, 1)">                                                     Point3</span><span style="color: rgba(0, 0, 255, 1)">="100,50"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">LineSegment</span><span style="color: rgba(255, 0, 0, 1)">Point</span><span style="color: rgba(0, 0, 255, 1)">="100,100"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">PathFigure.Segments</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">PathFigure</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">PathGeometry.Figures</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">PathGeometry</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Path.Data</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Path</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Viewbox</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">ControlTemplate</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Setter.Value</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Setter</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Style</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre> </div> <p>这里我使用了一个 Viewbox 以适应 Path 缩放。Path 大小我们定义为 100x100，然后先从左下角 0,100 开始绘制，绘制一条直线到 0,50，接下来绘制我们的贝塞尔曲线，Point3 是终点 100,50，最后我们绘制了一条直线从 100,50 到 100,100。另外因为 PathFigure 默认就是会自动封闭的，所以我们不需要画 100,100 到 0,100 的这一条直线。当然以上这些点的坐标都会在运行期间发生变化是了，这里这些坐标仅仅只是先看看效果。</p> <p>加入如下代码到我们的页面：</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">local:WaveProgressBar</span><span style="color: rgba(255, 0, 0, 1)">Width</span><span style="color: rgba(0, 0, 255, 1)">="200"</span><span style="color: rgba(255, 0, 0, 1)"> Height</span><span style="color: rgba(0, 0, 255, 1)">="300"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span></pre> </div> <p>运行程序应该会看到如下效果：</p> <p><img loading="lazy" decoding="async" src="http://img.555519.xyz/uploads3/20220510/a6675e5aee660df23fd9d3860a0f71c8.jpg" alt="【UWP】实现一个波浪进度条"></p> <p>接下来我们就可以考虑我们的进度 Progress 属性了，这里我定义 0 代表 0%，1 代表 100%，那 0.5 就是 50% 了。定义如下依赖属性：</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre><span style="color: rgba(0, 0, 255, 1)">    public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> WaveProgressBar : Control     {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> DependencyProperty ProgressProperty =<span style="color: rgba(0, 0, 0, 1)"> DependencyProperty.Register(             nameof(Progress),</span><span style="color: rgba(0, 0, 255, 1)">typeof</span>(<span style="color: rgba(0, 0, 255, 1)">double</span>),<span style="color: rgba(0, 0, 255, 1)">typeof</span>(WaveProgressBar),<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PropertyMetadata(0d, OnProgressChanged));</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> WaveProgressBar()         {             DefaultStyleKey</span>=<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(WaveProgressBar);         }</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> Progress         {</span><span style="color: rgba(0, 0, 255, 1)">get</span> =&gt; (<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)">)GetValue(ProgressProperty);</span><span style="color: rgba(0, 0, 255, 1)">set</span> =&gt;<span style="color: rgba(0, 0, 0, 1)"> SetValue(ProgressProperty, value);         }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> OnProgressChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)         {</span><span style="color: rgba(0, 0, 255, 1)">throw</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> NotImplementedException();         }     }</span></pre> </div> <p>由于我们要对 Path 里面的点进行动画，所以先在 OnApplyTemplate 方法中把它们拿出来。</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre>    [TemplatePart(Name = LineSegmentTemplateName, Type =<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(LineSegment))]     [TemplatePart(Name</span>= BezierSegmentTemplateName, Type =<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(BezierSegment))]</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> WaveProgressBar : Control     {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> DependencyProperty ProgressProperty =<span style="color: rgba(0, 0, 0, 1)"> DependencyProperty.Register(             nameof(Progress),</span><span style="color: rgba(0, 0, 255, 1)">typeof</span>(<span style="color: rgba(0, 0, 255, 1)">double</span>),<span style="color: rgba(0, 0, 255, 1)">typeof</span>(WaveProgressBar),<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PropertyMetadata(0d, OnProgressChanged));</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">const</span><span style="color: rgba(0, 0, 255, 1)">string</span> BezierSegmentTemplateName =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">PART_BezierSegment</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">const</span><span style="color: rgba(0, 0, 255, 1)">string</span> LineSegmentTemplateName =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">PART_LineSegment</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> BezierSegment _bezierSegment;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> LineSegment _lineSegment;</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> WaveProgressBar()         {             DefaultStyleKey</span>=<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(WaveProgressBar);         }</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> Progress         {</span><span style="color: rgba(0, 0, 255, 1)">get</span> =&gt; (<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)">)GetValue(ProgressProperty);</span><span style="color: rgba(0, 0, 255, 1)">set</span> =&gt;<span style="color: rgba(0, 0, 0, 1)"> SetValue(ProgressProperty, value);         }</span><span style="color: rgba(0, 0, 255, 1)">protected</span><span style="color: rgba(0, 0, 255, 1)">override</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> OnApplyTemplate()         {             _lineSegment</span>=<span style="color: rgba(0, 0, 0, 1)"> (LineSegment)GetTemplateChild(LineSegmentTemplateName);             _bezierSegment</span>=<span style="color: rgba(0, 0, 0, 1)"> (BezierSegment)GetTemplateChild(BezierSegmentTemplateName);         }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> OnProgressChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)         {</span><span style="color: rgba(0, 0, 255, 1)">throw</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> NotImplementedException();         }     }</span></pre> </div> <p>接着我们可以考虑动画部分了，这里应该有两个地方会调用到动画，一个是 OnProgressChanged，Progress 值变动需要触发动画。另一个地方是 OnApplyTemplate，因为控件第一次出现时需要将 Progress 的值立刻同步上去（不然 Progress 跟看上去的不一样），所以这个是瞬时的动画。</p> <p>配合最开始的理论，我们大致可以编写出如下的动画代码：</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre><span style="color: rgba(0, 0, 255, 1)">        private</span><span style="color: rgba(0, 0, 255, 1)">void</span> PlayAnimation(<span style="color: rgba(0, 0, 255, 1)">bool</span><span style="color: rgba(0, 0, 0, 1)"> isInit)         {</span><span style="color: rgba(0, 0, 255, 1)">if</span> (_lineSegment ==<span style="color: rgba(0, 0, 255, 1)">null</span> || _bezierSegment ==<span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">)             {</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)">;             }</span><span style="color: rgba(0, 0, 255, 1)">var</span> targetY =<span style="color: rgba(128, 0, 128, 1)">100</span> * (<span style="color: rgba(128, 0, 128, 1)">1</span> -<span style="color: rgba(0, 0, 0, 1)"> Progress);</span><span style="color: rgba(0, 0, 255, 1)">var</span> duration =<span style="color: rgba(0, 0, 255, 1)">new</span> Duration(TimeSpan.FromSeconds(isInit ?<span style="color: rgba(128, 0, 128, 1)">0</span> :<span style="color: rgba(128, 0, 128, 1)">0.7</span><span style="color: rgba(0, 0, 0, 1)">));</span><span style="color: rgba(0, 0, 255, 1)">var</span> storyboard =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Storyboard();</span><span style="color: rgba(0, 0, 255, 1)">var</span> point1Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">0.5</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point1Animation, _lineSegment);             Storyboard.SetTargetProperty(point1Animation, nameof(_lineSegment.Point));             storyboard.Children.Add(point1Animation);</span><span style="color: rgba(0, 0, 255, 1)">var</span> point2Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">35</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">1.5</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point2Animation, _bezierSegment);             Storyboard.SetTargetProperty(point2Animation, nameof(_bezierSegment.Point1));             storyboard.Children.Add(point2Animation);</span><span style="color: rgba(0, 0, 255, 1)">var</span> point3Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">65</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">0.1</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point3Animation, _bezierSegment);             Storyboard.SetTargetProperty(point3Animation, nameof(_bezierSegment.Point2));             storyboard.Children.Add(point3Animation);</span><span style="color: rgba(0, 0, 255, 1)">var</span> point4Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">100</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">0.5</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point4Animation, _bezierSegment);             Storyboard.SetTargetProperty(point4Animation, nameof(_bezierSegment.Point3));             storyboard.Children.Add(point4Animation);              storyboard.Begin();         }</span></pre> </div> <p>对于 OnApplyTemplate 的瞬时动画，我们直接设置 Duration 为 0。</p> <p>接下来 4 个点的控制，我们通过使用 BackEase 缓动函数，配上不同的强度（Amplitude）来实现控制点 1 先到达目标，然后是起点和终点同时到达目标，最后控制点 2 到达目标。</p> <p>最后 WaveProgressBar 的完整代码应该是这样的：</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre>    [TemplatePart(Name = LineSegmentTemplateName, Type =<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(LineSegment))]     [TemplatePart(Name</span>= BezierSegmentTemplateName, Type =<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(BezierSegment))]</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> WaveProgressBar : Control     {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">readonly</span> DependencyProperty ProgressProperty =<span style="color: rgba(0, 0, 0, 1)"> DependencyProperty.Register(             nameof(Progress),</span><span style="color: rgba(0, 0, 255, 1)">typeof</span>(<span style="color: rgba(0, 0, 255, 1)">double</span>),<span style="color: rgba(0, 0, 255, 1)">typeof</span>(WaveProgressBar),<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PropertyMetadata(0d, OnProgressChanged));</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">const</span><span style="color: rgba(0, 0, 255, 1)">string</span> BezierSegmentTemplateName =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">PART_BezierSegment</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">const</span><span style="color: rgba(0, 0, 255, 1)">string</span> LineSegmentTemplateName =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">PART_LineSegment</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> BezierSegment _bezierSegment;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> LineSegment _lineSegment;</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> WaveProgressBar()         {             DefaultStyleKey</span>=<span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(WaveProgressBar);         }</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> Progress         {</span><span style="color: rgba(0, 0, 255, 1)">get</span> =&gt; (<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)">)GetValue(ProgressProperty);</span><span style="color: rgba(0, 0, 255, 1)">set</span> =&gt;<span style="color: rgba(0, 0, 0, 1)"> SetValue(ProgressProperty, value);         }</span><span style="color: rgba(0, 0, 255, 1)">protected</span><span style="color: rgba(0, 0, 255, 1)">override</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> OnApplyTemplate()         {             _lineSegment</span>=<span style="color: rgba(0, 0, 0, 1)"> (LineSegment)GetTemplateChild(LineSegmentTemplateName);             _bezierSegment</span>=<span style="color: rgba(0, 0, 0, 1)"> (BezierSegment)GetTemplateChild(BezierSegmentTemplateName);              PlayAnimation(</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">);         }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> OnProgressChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)         {</span><span style="color: rgba(0, 0, 255, 1)">var</span> obj =<span style="color: rgba(0, 0, 0, 1)"> (WaveProgressBar)d;             obj.PlayAnimation(</span><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">);         }</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">void</span> PlayAnimation(<span style="color: rgba(0, 0, 255, 1)">bool</span><span style="color: rgba(0, 0, 0, 1)"> isInit)         {</span><span style="color: rgba(0, 0, 255, 1)">if</span> (_lineSegment ==<span style="color: rgba(0, 0, 255, 1)">null</span> || _bezierSegment ==<span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">)             {</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)">;             }</span><span style="color: rgba(0, 0, 255, 1)">var</span> targetY =<span style="color: rgba(128, 0, 128, 1)">100</span> * (<span style="color: rgba(128, 0, 128, 1)">1</span> -<span style="color: rgba(0, 0, 0, 1)"> Progress);</span><span style="color: rgba(0, 0, 255, 1)">var</span> duration =<span style="color: rgba(0, 0, 255, 1)">new</span> Duration(TimeSpan.FromSeconds(isInit ?<span style="color: rgba(128, 0, 128, 1)">0</span> :<span style="color: rgba(128, 0, 128, 1)">0.7</span><span style="color: rgba(0, 0, 0, 1)">));</span><span style="color: rgba(0, 0, 255, 1)">var</span> storyboard =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Storyboard();</span><span style="color: rgba(0, 0, 255, 1)">var</span> point1Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">0.5</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point1Animation, _lineSegment);             Storyboard.SetTargetProperty(point1Animation, nameof(_lineSegment.Point));             storyboard.Children.Add(point1Animation);</span><span style="color: rgba(0, 0, 255, 1)">var</span> point2Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">35</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">1.5</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point2Animation, _bezierSegment);             Storyboard.SetTargetProperty(point2Animation, nameof(_bezierSegment.Point1));             storyboard.Children.Add(point2Animation);</span><span style="color: rgba(0, 0, 255, 1)">var</span> point3Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">65</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">0.1</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point3Animation, _bezierSegment);             Storyboard.SetTargetProperty(point3Animation, nameof(_bezierSegment.Point2));             storyboard.Children.Add(point3Animation);</span><span style="color: rgba(0, 0, 255, 1)">var</span> point4Animation =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> PointAnimation             {                 EnableDependentAnimation</span>=<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,                 Duration</span>=<span style="color: rgba(0, 0, 0, 1)"> duration,                 To</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Point(<span style="color: rgba(128, 0, 128, 1)">100</span><span style="color: rgba(0, 0, 0, 1)">, targetY),                 EasingFunction</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> BackEase                 {                     Amplitude</span>=<span style="color: rgba(128, 0, 128, 1)">0.5</span><span style="color: rgba(0, 0, 0, 1)">                 }             };             Storyboard.SetTarget(point4Animation, _bezierSegment);             Storyboard.SetTargetProperty(point4Animation, nameof(_bezierSegment.Point3));             storyboard.Children.Add(point4Animation);              storyboard.Begin();         }     }</span></pre> </div> <p>修改项目主页面如下：</p> <div class="cnblogs_code" style="padding: 5px; border: 1px solid rgba(204, 204, 204, 1); background-color: rgba(245, 245, 245, 1)"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Grid</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">local:WaveProgressBar</span><span style="color: rgba(255, 0, 0, 1)">Width</span><span style="color: rgba(0, 0, 255, 1)">="200"</span><span style="color: rgba(255, 0, 0, 1)">             Height</span><span style="color: rgba(0, 0, 255, 1)">="300"</span><span style="color: rgba(255, 0, 0, 1)">             Progress</span><span style="color: rgba(0, 0, 255, 1)">="</span><span style="color: rgba(128, 128, 0, 1)">{Binding ElementName=Slider, Path=Value}</span><span style="color: rgba(0, 0, 255, 1)">"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Slider</span><span style="color: rgba(255, 0, 0, 1)">x:Name</span><span style="color: rgba(0, 0, 255, 1)">="Slider"</span><span style="color: rgba(255, 0, 0, 1)">             Width</span><span style="color: rgba(0, 0, 255, 1)">="200"</span><span style="color: rgba(255, 0, 0, 1)">             Margin</span><span style="color: rgba(0, 0, 255, 1)">="0,0,0,20"</span><span style="color: rgba(255, 0, 0, 1)">             HorizontalAlignment</span><span style="color: rgba(0, 0, 255, 1)">="Center"</span><span style="color: rgba(255, 0, 0, 1)">             VerticalAlignment</span><span style="color: rgba(0, 0, 255, 1)">="Bottom"</span><span style="color: rgba(255, 0, 0, 1)">             Maximum</span><span style="color: rgba(0, 0, 255, 1)">="1"</span><span style="color: rgba(255, 0, 0, 1)">             Minimum</span><span style="color: rgba(0, 0, 255, 1)">="0"</span><span style="color: rgba(255, 0, 0, 1)">             StepFrequency</span><span style="color: rgba(0, 0, 255, 1)">="0.01"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Grid</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre> </div> <p>此时再运行的话，你就会看到如本文开头中动图的效果了。</p> <p>本文的代码也可以在这里找到：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/h82258652/UWPWaveProgressBar"  rel="nofollow">https://github.com/h82258652/UWPWaveProgressBar</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36255.htm">国内动物疫苗生产企业有多少家企业呢（动物疫苗企业名单）</a></p>
+                                        <p>下一个：<a href="/news/article-36635.htm">附近领养宠物小猫的地方（附近领养宠物小狗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-node-share-links.htm" title="10月8日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月8日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19771.htm" title="小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）">小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）</a></li>
+                        <li class="py-2"><a href="/news/article-25755.htm" title="75度的酒精喷床上能治跳蚤吗（75度酒精可以杀跳蚤吗）">75度的酒精喷床上能治跳蚤吗（75度酒精可以杀跳蚤吗）</a></li>
+                        <li class="py-2"><a href="/news/article-24826.htm" title="宠物粮厂利润怎么样呀（宠物粮厂利润怎么样呀）">宠物粮厂利润怎么样呀（宠物粮厂利润怎么样呀）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-mihomo-node-share.htm" title="10月31日→18.9M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月31日→18.9M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-mihomo-node.htm" title="12月31日→20M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">12月31日→20M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32327.htm" title="MySQL SELECT子句中如何使用Groups函数？">MySQL SELECT子句中如何使用Groups函数？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-mihomo-windows.htm" title="10月26日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">10月26日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27610.htm" title="宠物用品批发进货渠道电商（宠物用品批发进货网站）">宠物用品批发进货渠道电商（宠物用品批发进货网站）</a></li>
+                        <li class="py-2"><a href="/news/article-26686.htm" title="孕妇让猫咪抓伤有一点血（怀孕让猫挠了出血了没有事吧）">孕妇让猫咪抓伤有一点血（怀孕让猫挠了出血了没有事吧）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
