@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-39597.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PostCSS分享</title>
+        <meta name="description" content="前沿背景 我们在书写 css 的时候其实经历了以下几个阶段：   手写原生 CSS 使用预处理器 Sass/Less/stylus 使用 PostCSS 使用 css modules 使用 css i" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                                                <a href="/">
+                                    <span>Mihomo Node</span>
+                                </a>
+                                                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                        <li>
+                                <a href="#"><span>关于</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>联系</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">PostCSS分享</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_0" rel="nofollow"></a>前沿背景</h2> <p><strong>我们在书写 css 的时候其实经历了以下几个阶段：</strong></p> <blockquote> <ul> <li>手写原生 CSS</li> <li>使用预处理器 Sass/Less/stylus</li> <li>使用 PostCSS</li> <li>使用 css modules</li> <li>使用 css in js</li> </ul> </blockquote> <p><strong>原生css缺点：</strong></p> <blockquote> <ul> <li>语法不够强大，不能够嵌套书写，不利于模块化开发</li> <li>没有变量和逻辑上的复用机制，导致在css的属性值中只能使用字面量形式，以及不断重复书写重复的样式，导致难以维护</li> </ul> </blockquote> <p>面对以上问题，为了能够让css具备js的可复用性，灵活性、模块化开发以及更好的管理样式文件，像sass，less，stylus这样的css预处理器就应运而生。</p> <p><strong>了解下两种处理器的大概定义：</strong></p> <blockquote> <ul> <li>预处理器：按照预处理器的语法来写css的代码，最后交由预处理器的编译器编译成一个传统的css</li> <li>后处理器：我们把css代码写完之后，交由它去处理，添加一些必要的属性</li> </ul> </blockquote> <p><strong>预处理器的优点：</strong></p> <blockquote> <ul> <li>可以提供 CSS 缺失的样式层复用机制、减少冗余代码，提高样式代码的可维护性，大大提高了开发效率，比如变量，函数，运算，条件语句，混合等。 CSS预编译的缺点</li> <li>不支持未来的css</li> <li>引入了编译的过程</li> <li>采用各自预处理器框架语法DSL，有一定的学习成本，框架耦合度高，复杂度高</li> <li>全局变量的污染问题，在多人开发过程当中，定义选择器时，或变量时需要顾及到其他地方是否使用了同样的命名</li> <li>Css 预处理器的代码是无法直接运行于浏览器的，所以我们还需要进行编译解析成为 Css 文件。以sass为例，目前前端一般会使用gulp，webpack等构建工具，webpack构建必须安装sass-loader，而sass-loader又依赖于node-sass，要知道node-sass安装速度极其慢，特别是使用window系统开发时，低版本的node经常会出现node-sass安装不成功的情况。</li> </ul> </blockquote> <p>于是后出现了比较典型的是PostCSS。<br /><em><strong>anyway，终极目的：让你的代码更可靠（Bug更少、兼容性更高甚至功能更强大）</strong></em></p> <p>接下来瞅瞅PostCSS到底是何方神圣吧！！！</p> <p><strong>PostCSS是什么？</strong></p> <blockquote> <p><strong>来自于PostCSS自身项目在github上的描述：</strong><br /> PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more<br /><strong>翻译过来就是：</strong><br /> postcss是使用用js插件转换样式的工具。这些插件可以校验css，支持variables和mixins，编译未来css语法，内联图片等等</p> </blockquote> <p>世人关于他的描述：</p> <blockquote> <p>有人说，他是CSS界的Babel<br /> 有人说，他是CSS界的Webpack<br /> 有人说，他是用 JavaScript 转换 CSS 的工具<br /> 有人说，他是一个平台，允许强大的插件在它上面跑，简化编程<br /> 有人说，他功能似预处理器 有人说，他功能似后处理器<br /> 有人说，他书写似未来的新语法</p> </blockquote> <p>anyway，众说纷云，个人认为可以从2方面解读：</p> <blockquote> <ol> <li>PostCss 本身</li> <li>PostCss 衍生的生态系统</li> </ol> </blockquote> <p>从PostCSS本身来说：</p> <blockquote> <ul> <li>它本身只是一个API，自身并不会改变CSS</li> <li>作为一个API它可以创建任何需要的插件和工具</li> </ul> </blockquote> <p>从PossCSS衍生的生态系统来说</p> <blockquote> <p>PossCSS是预处理器吗？不是哦。<br /> PossCSS是后处理器吗？还不是哦。<br /> PossCSS是未来的新语法吗？还还不是哦。<br /> 那为什么有人说他像呢。他的定位到底是什么呢？</p> </blockquote> <p><strong>划重点来了！！！：postCss 具体做的事取决于开发者使用了什么插件。</strong></p> <p>它可以通过相应的插件去实现类似 sass 等预处理器的功能，如： precss。<br /> 也可以通过相应的插件执行后置处理器的工作，如：autoprefixer。<br /> 还可以通过相应的插件去编写未来的新语法(css4)，如：cssnext。<br /> 它的好处还不止这些。。。。<br /> 那么PostCSS有特别之处在哪呢？</p> <p><strong>PostCSS的特别之处</strong></p> <blockquote> <ol> <li>对Source Map支持更好（它能够读取和解析从之前转换步骤生成的映射，自动检测你期望的格式，并且输出外联和内联映射）</li> <li>创建自己的插件，且具可访问性</li> <li>支持未来的css: 使用cssnext书写未来的css</li> <li>使用 CSS 语法，容易进行模块化，贴近 CSS 的未来标准</li> <li>可以与许多流行工具构建无缝部署（grunt，gulp，webpack）</li> <li>可以像使用CSS一样使用PostCSS，也可以与less或者sass一起使用</li> <li>编译速度大大提升（3倍以上的处理速度，其一只需要加载需要的插件；其二它是运行在JavaScript上，可以使用benchmark运行检测这些基准）</li> <li>不依赖于任何预处理器就具备创建一个库的能力（Cory Simmons当时使用Stylus和Sass编写了一个网格系统，他的用户群体只对应使用Stylus和Sass的用户。随后他使用PostCSS移植了这个网格系统，这也意味着现在每个人都可以使用了，包手Stylus、Sass用户，甚至是使用LESS或不使用任何预处理器的人）</li> </ol> </blockquote> <hr/> <p>话不多说，接下来看看他是如何工作的吧！！！<br /><strong>PostCSS是如何处CSS的</strong><br /> PostCSS架构大致如下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/a960f6be77a96499641418527645744a.jpg" alt="PostCSS分享"></p> <blockquote> <ul> <li>parser过程：将css字符串解析成可供我们操作的JavaScript对象</li> <li>processor过程：我们应用postcss插件、或是自定义插件，都是在这个过程中，根据postcss提供的API，对parser生成的js对象做相应调整</li> <li>stringfier过程：将我们处理后的js对象， 从 root 开始，层序遍历 AST 树，根据节点类型，拼接节点的数据为css字符串</li> </ul> </blockquote> <p>PostCSS本身是一个NodeJs模块，它将CSS转换成AST(抽象语法树)，对应的是JavaScript对象，然后通过插件遍历AST，进行增加，删除，修改，最后再生成CSS文件，这就是整个流程，跟babel的架构非常相似。<br /> 来大概看一眼解析后的AST结构吧<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/e52dfeef17e061d8196fe0caaadbc851.jpg" alt="PostCSS分享"></p> <blockquote> <ul> <li>Root: 继承自 Container。AST 的根节点，代表整个 css 文件</li> <li>AtRule: 继承自 Container。以 @ 开头的语句，核心属性为 params，例如： @import url(‘./default.css’)，params 为url(‘./default.css’)</li> <li>Rule: 继承自 Container。带有声明的选择器，核心属性为 selector，例如： .color2{}，selector为.color2</li> <li>Comment: 继承自 Node。标准的注释/* 注释 */ 节点包括一些通用属性:</li> <li>type：节点类型</li> <li>parent：父节点</li> <li>source：存储节点的资源信息，计算 sourcemap</li> <li>start：节点的起始位置</li> <li>end：节点的终止位置 raws：存储节点的附加符号，分号、空格、注释等，在 stringify 过程中会拼接这些附加符号</li> </ul> </blockquote> <p><strong>PostCSS插件列表</strong></p> <blockquote> <ul> <li>autoprefixer (添加浏览器前缀)</li> <li>precss（可以像写预处理器一样写css）</li> <li>cssnext (可以使用最新的css语法)</li> <li>cssnano（压缩css）</li> <li>stylelint （CSS 检测器，支持新css语法校验）</li> <li>postcss-modules<br /> …</li> </ul> </blockquote> <p>话不多说，直接看怎么使用吧！项目目录如下图所示！<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/228e749307c4adae5637d2dc9cab4d44.jpg" alt="PostCSS分享"><br /> src文件夹下，index.css配置</p> <pre><code class="prism language-css"><span class="token comment">/* nextcss */</span><span class="token selector">:root</span><span class="token punctuation">{<!-- --></span><span class="token property">--mainColor</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">.color</span><span class="token punctuation">{<!-- --></span><span class="token property">color</span><span class="token punctuation">:</span><span class="token function">var</span><span class="token punctuation">(</span>--mainColor<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 嵌套 */</span><span class="token selector">.precss</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span><span class="token selector">&amp;::before</span><span class="token punctuation">{<!-- --></span><span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">/* 变量 */</span> $<span class="token property">blue</span><span class="token punctuation">:</span>#056ef0<span class="token punctuation">;</span> $<span class="token property">border_comn</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span><span class="token selector">.variable</span><span class="token punctuation">{<!-- --></span><span class="token property">color</span><span class="token punctuation">:</span>$blue<span class="token punctuation">;</span><span class="token property">border</span><span class="token punctuation">:</span> $border_comn<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 条件循环 */</span> $<span class="token property">column_layout</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span><span class="token selector">.column</span><span class="token punctuation">{<!-- --></span><span class="token atrule"><span class="token rule">@if</span> $column_layout == 2</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span><span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token atrule"><span class="token rule">@else</span></span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">/* 循环 */</span><span class="token atrule"><span class="token rule">@for</span> $i from 1 to 3</span><span class="token punctuation">{<!-- --></span><span class="token selector">p:nth-of-type($i)</span><span class="token punctuation">{<!-- --></span><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token function">calc</span><span class="token punctuation">(</span>100% / $i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">/* 添加浏览器前缀 */</span><span class="token selector">.autoprefixer</span><span class="token punctuation">{<!-- --></span><span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>src文件夹下，index.js配置</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span><span class="token string">'./index.css'</span><span class="token keyword">const</span> div<span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span> div<span class="token punctuation">.</span>innerHTML<span class="token operator">=</span><span class="token string">'hello postcss'</span> div<span class="token punctuation">.</span>className<span class="token operator">=</span><span class="token string">'autoprefixer'</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span></code></pre> <p><strong>PostCSS与工具的结合</strong><br /> 本文主要介绍PostCSS与gulp和webpack的结合使用demo<br /> 以<strong>autoprefixer</strong>，<strong>postcss-cssnext</strong>，<strong>precss</strong>三个插件为例</p> <p><strong>package.json配置如下：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/06a54e341cc058b04bba46bda2ef0e73.jpg" alt="PostCSS分享"></p> <ol> <li><strong>PostCSS与webpack(配置)</strong></li> </ol> <pre><code class="prism language-javascript">npm install webpack webpack<span class="token operator">-</span>cli mini<span class="token operator">-</span>css<span class="token operator">-</span>extract<span class="token operator">-</span>plugin css<span class="token operator">-</span>loader  postcss<span class="token operator">-</span>loader postcss<span class="token operator">-</span>cssnext autoprefixer<span class="token punctuation">,</span> precss</code></pre> <p>配置webpack.config.js<br /> 要使用到postcss-loader，且必须在css-loader后面</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> path<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> postcss<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'postcss'</span><span class="token punctuation">)</span><span class="token keyword">const</span> MiniCssExtractPlugin<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mini-css-extract-plugin'</span><span class="token punctuation">)</span><span class="token keyword">const</span> transformColor<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./postcss-transform-color"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// var root    = postcss.parse('a{color:white;} b{width:100px}')</span><span class="token comment">// console.log("root",root)</span>  module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">entry</span><span class="token operator">:</span><span class="token string">'./src/index.js'</span><span class="token punctuation">,</span><span class="token literal-property property">output</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">filename</span><span class="token operator">:</span><span class="token string">'index.js'</span><span class="token punctuation">,</span><span class="token literal-property property">path</span><span class="token operator">:</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'dist/webpack'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">module</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">rules</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">test</span><span class="token operator">:</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.css$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span class="token literal-property property">use</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">loader</span><span class="token operator">:</span> MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">loader</span><span class="token operator">:</span><span class="token string">"postcss-loader"</span><span class="token punctuation">,</span><span class="token comment">// options: {<!-- --></span><span class="token comment">//         ident: 'postcss',</span><span class="token comment">//         sourceMap: true,</span><span class="token comment">//         plugins:[</span><span class="token comment">//             transformColor({ colorMap: [{ source: '#1890ff', target: '#ffbd00' }] })</span><span class="token comment">//         ]</span><span class="token comment">// }</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">plugins</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token keyword">new</span><span class="token class-name">MiniCssExtractPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">filename</span><span class="token operator">:</span><span class="token string">'index.css'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre> <p>那接下来就是让Loader识别到插件配置了，Loader 将会从下面几个地方搜索目录树来寻找配置文件：</p> <ul> <li>package.json 中的 postcss 属性</li> <li>JSON 或者 YAML 格式的 .postcssrc 文件</li> <li>.postcss.json、.postcss.yaml、.postcss.yml、.postcss.js 或者 .postcss.cjs 文件</li> <li>postcss.config.js 或者 postcss.config.cjs 导出一个对象的 CommonJS 模块（推荐）<br /> 本demo以配置postcss.config.js为例</li> </ul> <pre><code class="prism language-javascript"><span class="token keyword">const</span> transformColor<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./postcss-transform-color"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">plugins</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token comment">// require('autoprefixer'),</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'precss'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'postcss-cssnext'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// transformColor({ colorMap: [{ source: '#1890ff', target: '#ffbd00' }] })</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre> <p>执行npm run build之后生成的 webpack/index.css如下</p> <pre><code class="prism language-css"><span class="token comment">/* nextcss */</span><span class="token selector">.color</span><span class="token punctuation">{<!-- --></span><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 嵌套 */</span><span class="token selector">.precss</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">}</span><span class="token selector">.precss:before</span><span class="token punctuation">{<!-- --></span><span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 变量 */</span><span class="token selector">.variable</span><span class="token punctuation">{<!-- --></span><span class="token property">color</span><span class="token punctuation">:</span>#056ef0<span class="token punctuation">;</span><span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 条件循环 */</span><span class="token selector">.column</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span><span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">}</span><span class="token comment">/* 循环 */</span><span class="token selector">p:nth-of-type(1)</span><span class="token punctuation">{<!-- --></span><span class="token property">margin-left</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">p:nth-of-type(2)</span><span class="token punctuation">{<!-- --></span><span class="token property">margin-left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">p:nth-of-type(3)</span><span class="token punctuation">{<!-- --></span><span class="token property">margin-left</span><span class="token punctuation">:</span> 33.33333%<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 添加浏览器前缀 */</span><span class="token selector">.autoprefixer</span><span class="token punctuation">{<!-- --></span><span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <ol start="2"> <li>PostCSS与Gulp(配置)<br /> 安装gulp，gulp-postcss，postcss-cssnext，autoprefixer， precss<br /> 配置gulpfile.js</li> </ol> <pre><code class="prism language-javascript"><span class="token keyword">var</span> gulp<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">var</span> transformColor<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./postcss-transform-color'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">var</span> cssnext<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'postcss-cssnext'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">var</span> autoprefixer<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'autoprefixer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">var</span> postcss<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'gulp-postcss'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">var</span> precss<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'precss'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'css'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">var</span> processors<span class="token operator">=</span><span class="token punctuation">[</span>         autoprefixer<span class="token punctuation">,</span>         cssnext<span class="token punctuation">,</span>         precss<span class="token punctuation">,</span><span class="token comment">//transformColor({ colorMap: [{ source: '#1890ff', target: '#ffbd00' }] })</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'./src/index.css'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">postcss</span><span class="token punctuation">(</span>processors<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">'./dist/gulp'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>执行gulp css，会在dist/gulp文件夹下生成被postcss处理过的index.css</p> <pre><code class="prism language-css"><span class="token comment">/* nextcss */</span><span class="token selector">.color</span><span class="token punctuation">{<!-- --></span><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 嵌套 */</span><span class="token selector">.precss</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">}</span><span class="token selector">.precss:before</span><span class="token punctuation">{<!-- --></span><span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 变量 */</span><span class="token selector">.variable</span><span class="token punctuation">{<!-- --></span><span class="token property">color</span><span class="token punctuation">:</span>#056ef0<span class="token punctuation">;</span><span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 条件循环 */</span><span class="token selector">.column</span><span class="token punctuation">{<!-- --></span><span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span><span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">}</span><span class="token comment">/* 添加浏览器前缀 */</span><span class="token selector">.autoprefixer</span><span class="token punctuation">{<!-- --></span><span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> </h1> <p>带有 postcss- 前缀的清晰的命名</p> <ul> <li>只做一件事，并将它做好</li> <li>不要使用 mixins</li> <li>通过 postcss.plugin 创建插件</li> </ul> <pre><code class="prism language-javascript">module<span class="token punctuation">.</span>exports<span class="token operator">=</span> postcss<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'plugin-name'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">opts</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> result</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 插件代码</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>在后台前端应用的开发中，经常会用到各类 UI 组件库，假如项目中用到了知名的 antd，但是需要对应用的各个基础组件做一次换肤，而 antd 只有定制化的几种色号可选，这次要做的是将基础组件的色号都换成美团黄，所以 antd 没法满足需求。当然我们可以在样式表中手动改写 antd 的样式以达到目标，但是这并不方便。我们沿着自动化的思路想，可以在打包过程中对所有样式做统一处理并做一层转换，而样式的解析转换刚好是 loader 的工作，在此实现这一思路会非常合适<br /> 以下图class为例，解析出右边的AST结构<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/32a1f972b830b52a0d841435d265f145.jpg" alt="PostCSS分享"></p> <p>转换后的结构就像包含了很多层级树一样，第一层是 root 节点，每个 css 文件就相当于一个 root 节点，每个 root 节点包含的是子节点集合即 type 为 rule 的节点，对应于 css 中的样式块，每个样式块即 type 为 decl 包含书写的 css 键值对集合，prop 对应于健，而 value 就是值了。可以想到，只要遍历获取这些值再转换目标值为需要的值，即获取到 decl 节点中的 value 并进行替换</p> <p>PostCss 提供了很多 API 方便操作转换后 AST 树，此次分析后只用到如下遍历相关 API</p> <ul> <li><strong>walk</strong>: 遍历所有节点信息</li> <li><strong>walkAtRules</strong>: 遍历所有 atrule 类型节点</li> <li><strong>walkRules</strong>: 遍历所有 rule 类型节点</li> <li><strong>walkComments</strong>: 遍历所有 comment 类型节点</li> <li><strong>walkDecls</strong>: 遍历所有 decl 类型节点</li> </ul> <p>在根目录下新建postcss-transform-color.js，插件名为postcss-transform-color</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> postcss<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'postcss'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> transformColorPlugin<span class="token operator">=</span> postcss<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'postcss-transform-color'</span><span class="token punctuation">,</span><span class="token parameter">opts</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     opts<span class="token operator">=</span> opts<span class="token operator">||</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> colorMap<span class="token punctuation">}</span><span class="token operator">=</span> opts<span class="token punctuation">;</span><span class="token keyword">return</span><span class="token parameter">root</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>         root<span class="token punctuation">.</span><span class="token function">walkRules</span><span class="token punctuation">(</span><span class="token parameter">rule</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>             rule<span class="token punctuation">.</span><span class="token function">walkDecls</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">decl<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 colorMap<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{<!-- --></span> source<span class="token punctuation">,</span> target<span class="token punctuation">}</span></span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>decl<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token operator">!==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                         decl<span class="token punctuation">.</span>value<span class="token operator">=</span> decl<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>source<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> module<span class="token punctuation">.</span>exports<span class="token operator">=</span> transformColorPlugin</code></pre> <p>首先通过 PostCss 转译为如下 AST 并深度遍历，先遍历 rule 节点再遍历 decl 节点，最后匹配 value 是否符合 config 中的 source，是则替换为美团黄。<br /> 如果在 webpack 中使用自定义的插件，则需要在 postcss 的 loader 中进行自定义插件的配置，也可以在postcss.config.js中配置<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/89002144b07c3c66fdb15c2e961f7f51.jpg" alt="PostCSS分享"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/665c2e40fefb5f03f74152f2119ed205.jpg" alt="PostCSS分享"></p> <p>执行npm run build后，<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/3b09f5134f0874e98344e8ac084160f1.jpg" alt="PostCSS分享"><br /> 变为：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/e893ca1da2f9cfdf8b686df9464feb26.jpg" alt="PostCSS分享"></p> <h2><a id="_430" rel="nofollow"></a>如何选择开发模式呢</h2> <p>PostCSS看起来有如此多的优点，那么项目中要用吗？用的话会带来什么样的变化呢？<br /><strong>那么，最明显的变化应该是开发模式的变化！</strong><br /> 原来的开发模式是这样的：</p> <blockquote> <p>DSL 源代码 -&gt; 生产环境 CSS</p> </blockquote> <p>与原来相比，新的 开发模式 最大的变化是面向 标准 CSS 编程，将 兼容性、优化 部分交给 CSS 后处理器 自动完成</p> <blockquote> <p>DSL 源代码 -&gt; 标准 CSS -&gt; 生产环境 CSS</p> </blockquote> <p>等到众多 CSS 未来标准 在 CSS 后处理器 层面实现之后，部分项目甚至可以回归到使用 标准 CSS 编程的模式：</p> <blockquote> <p>标准 CSS（包含未来标准的后处理器实现）-&gt; 生产环境 CSS</p> </blockquote> <p>以下有一些简单对比：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/57ab628bcb8978e2d923ddc2cc256356.jpg" alt="PostCSS分享"><br /><strong>推荐 CSS 预处理器 与 CSS 后处理器 同时使用，各自做他们最擅长的部分。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/3623f8c920511bee4727180b1d5e718a.jpg" alt="PostCSS分享"><br /><strong>网上有大神有这样的预测，可以瞅瞅！</strong></p> <blockquote> <ul> <li>越来越多专注于<em><strong>单一功能</strong></em> 的小型<em><strong>CSS 工具库</strong></em></li> <li>CSS 样式库 从<em><strong>整体方案</strong></em> 到<em><strong>模块化组合方案</strong></em> 转变</li> <li>部分<em><strong>CSS 未来标准</strong></em> 在<em><strong>CSS 预处理器</strong></em> 中得到支持</li> <li><em><strong>原生 CSS</strong></em> 和<em><strong>CSS 后处理器</strong></em> 的组合成为新选择</li> </ul> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39075.htm">深圳宠物领养中心在哪里啊 深圳宠物领养中心在哪里啊多少钱</a></p>
+                                        <p>下一个：<a href="/news/article-39598.htm">领养宠物要签合同吗（领养宠物签的合同到底有用吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-mihomo-node-github.htm" title="11月25日→19.5M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月25日→19.5M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-mihomo-node.htm" title="12月31日→20M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">12月31日→20M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe-links.htm" title="12月9日→20.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月9日→20.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24825.htm" title="养猫的人容易得15种病吗为什么不能养狗（养猫的人容易得15种病吗为什么不能养狗呢）">养猫的人容易得15种病吗为什么不能养狗（养猫的人容易得15种病吗为什么不能养狗呢）</a></li>
+                        <li class="py-2"><a href="/news/article-21607.htm" title="常州宠颐生动物医院电话号码（常州宠颐生美多格动物医院）">常州宠颐生动物医院电话号码（常州宠颐生美多格动物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-mihomo-node-github.htm" title="12月3日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月3日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-today-mihomo-node.htm" title="12月28日→22.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月28日→22.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25753.htm" title="动物医院许可证办理流程视频（符合动物医院法定条件）">动物医院许可证办理流程视频（符合动物医院法定条件）</a></li>
+                        <li class="py-2"><a href="/news/article-25755.htm" title="75度的酒精喷床上能治跳蚤吗（75度酒精可以杀跳蚤吗）">75度的酒精喷床上能治跳蚤吗（75度酒精可以杀跳蚤吗）</a></li>
+                        <li class="py-2"><a href="/news/article-37118.htm" title="兽用和人用针剂的区别 兽用和人用针剂的区别是什么">兽用和人用针剂的区别 兽用和人用针剂的区别是什么</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
