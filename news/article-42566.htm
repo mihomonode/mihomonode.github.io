@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-42566.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微服务架构概述(帝炎)</title>
+        <meta name="description" content="单体架构存在的问题 在传统的软件技术架构系统中，基本上将业务功能集中在单一应用内，或者是单一进程中。尽管现代化的软件架构理论以及设计原则已推广多年，但实际技术衍化的速度迟缓并且变革动力不足。 其中的原" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-42566.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="微服务架构概述(帝炎)" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/ad33433ae26a9cd886e814de11839d35.webp" />
+        <meta property="og:release_date" content="2025-01-18T07:15:23" />
+    <meta property="og:updated_time" content="2025-01-18T07:15:23" />
+        <meta property="og:description" content="单体架构存在的问题 在传统的软件技术架构系统中，基本上将业务功能集中在单一应用内，或者是单一进程中。尽管现代化的软件架构理论以及设计原则已推广多年，但实际技术衍化的速度迟缓并且变革动力不足。 其中的原" />
+        
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                                                <a href="/">
+                                    <span>Mihomo Node</span>
+                                </a>
+                                                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="#">关于</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                        <li>
+                                <a href="#"><span>关于</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>联系</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">微服务架构概述(帝炎)</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h2>单体架构存在的问题</h2> <p>在传统的软件技术架构系统中，基本上将业务功能集中在单一应用内，或者是单一进程中。尽管现代化的软件架构理论以及设计原则已推广多年，但实际技术衍化的速度迟缓并且变革动力不足。 其中的原因存在着复杂性以及多样性，我想主要的原因是没有一套整体的解决方案能够让工程师在面临稳定性风险下，毅然决然地实施系统重构。当系统应用规模随着业务的迅速发展时，系统的重要性愈发突出，开发人员将对系统的改造尤为敏感，从之前的徘徊犹豫，随之变得更加保守，只能延续过去的技术方案，将功能不断地累积在原有的系统架构上。这样的系统好比是豆腐叠罗汉，叠得越高越危险。因此，当面临巨大的服务压力时，系统不得不通过扩容的方式，来支撑应对。俗话说，“船小好调头”，“头病医头，脚病医脚”。臃肿的系统使得扩容变得毫无针对性，牵一发而动全身。由于服务运行情况存在差异性，具体哪个功能存在性能瓶颈，又因服务并非孤立而存在，使得评估结果存在着主观臆断性和不确定性，这种相互影响和作用下，使得扩容变得异常的困难，扩容无法量化，最终导致“水桶效应”。</p> <p>当应用场景规模增大时，为了提高了开发以及执行的效率，并且使得更优雅或者合适的解决问题成为可能，开发人员将会评估和选择更先进的技术，推动演进。由于系统应用过分地集中了所有功能，其功能所需依赖服务以及执行库文件也随之变得庞大，当需要适配新的技术时，不仅依赖冲突难存在不确定性并且难以应付，进而使代码重构变得异常困难，增加了适配新技术的难度。</p> <p>正因为功能集中于一身，让应用资源占用率变得越来越大，使得持续集成、回归测试、以及分发部署变得愈发困难。比如，应用部署包磁盘占变多，让编译、打包、分发以及启动时间变长，不确定性因素变得更大。当应用发布上线后，存在功能性缺陷，需要回滚时，这样的试错和时间成本变得更加昂贵。</p> <p>越是功能集中式的系统架构，在开发工程中，越依赖于与执行环境。这种执行环境承载着数据、服务以及配置，如若其中那个环节出现问题，开发进程不得不被迫中断，而不断地诊断问题和调试环境，使得快速开发变得要不可及，更不要说在本地开发。由于对环境的过分依赖，使得系统的稳定性变得更不确定性。其一，由于服务相互依赖，而服务又依赖环境，开发人员对单元测试职业习惯以及依赖程度降低，使得测试环节减少，或者说更依赖于集成测试。其二，当测试人员在部署测试环境执行集成测试时，不但部署成功率不断地降低，而且执行过程时间不断地增加，压缩了开发时间，也可能导致项目滞后。不仅提高了系统风险，并且增加了心理负担。这么说来，无论是快速开发和测试都变得更加艰难。</p> <p>以上分析还只是停留在那些熟悉业务和技术的成员，当业务快速发展时，其发展速度与开发效率比不断扩大，招募和发展新人是必不可少的手段。当面对如此巨大和复杂的系统应用时，业务和技术所需的知识变得特别杂糅，让新人有一种“独上高楼望，尽天涯路”之感，学习曲线陡峭。在实际的实施过程中，文档完整性以及指导的系统性皆存在不足。</p> <h2>如何解决单体架构存在的问题</h2> <p><strong>单体应用给我们带来的现实问题：</strong></p> <ul> <li>扩容困难（Problems in scalability ）</li> <li>部署困难（Problems in deployment）</li> <li>发布回滚困难（Problems in release rollback）</li> <li>适配新技术困难（ Problems in adopting new technologies ）</li> <li>快速开发困难（Problems in RAD）</li> <li>测试困难（Problems in testing）</li> <li>学习困难（Problems in learning）</li> </ul> <p>实际上，在解决单体应用的问题上，数年前，就出现了相应的解决方法，比如SOA的技术路线。</p> <p>SOA解决一个现实的问题，那就是服务与服务之间解耦，将古老的进程内服务调用，通过网络协议转化成服务之间的调用。从早期发明了CORBA、RMI、COM+、XML-PPC等技术，不过问题也随之出现，由于这些技术绑定在某种技术或者平台，比如RMI属于Java 平台技术，COM+属于微软技术体系，XML=PRC没有统一的协议标准，因此对平台无关性的通讯需要的协议呼声强烈，这时一些典型的技术陆续出现，如WebServices以及MessageQueue。以及它们的集大成技术ESB。</p> <p>其中的代表技术有：WSDL（Web Service Definition Language）、SOAP（Simple Object Access Prototol）等技术。由于这些通讯协议标准相对笨重，虽然目前仍在被广泛的使用，但逐步被淘汰是大势所趋。</p> <h2>为什么不选SOA而选微服务</h2> <p>面向服务架构（SOA） VS 微服务</p> <p>类同</p> <ul> <li>面向服务（ Service-Oriented ）</li> <li>松耦合（Loose-Coupling）</li> <li>自包含（Self-Contained）</li> <li>平台无关性（Independent Platform）</li> </ul> <p>差异</p> <ul> <li>原子性（Atomic）</li> <li>自治性（Autonomous）</li> <li>开发运维体系（DevOps）</li> <li>轻量级（Lightweight）</li> <li>通讯协议（Communication Protocol）</li> </ul> <p>微服务是粒度小的SOA，正由于SOA体系庞大，不可能实现更好的原子性，并且它采用了统一统治的方式，例如ESB那样的大型解决方案。这样技术选型，针对单一的服务无法实现自行管理，无形之中增加了团队运维成本。开发人员不能很好的实施DevOps技术手段。同时，SOA采用了WSDL、SOAP等重量级的通讯协议，增加了开发成本以及性能损耗。在微服务中，大多数服务API通过REST的方式暴露，这样大大地降低了适配的成本。</p> <p>微服务是趋势</p> <p>让我们看看google和百度统计的结果吧</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/77555ad72dbf1d16680abe3d77df119d.jpg"></p> <p>图片.png</p> <p>图（1）Google中spring boot的搜索热度</p> <p>spring boot和spring cloud是做微服务的最佳搭档。从图（1）上，我们能够看到spring boot 2013年在全球开始流行，一直到2017年2月到了100的热度。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/52c4f9a184912dd9d3fd8e78b84439a5.jpg"></p> <p>图片.png</p> <p>图（2）google中spring cloud的搜索热度</p> <p>从图（2）上，我们可以看到spring cloud从2012年开始热度都是比较平和，在2015年6月之后，也就是微服务开始兴起的时候，spring cloud开始迅速增长，在2017年2月达到了100的搜索热度。（地图上没有中国，估计是因为中国被墙掉了的原因）</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/8c24f6272a2254a5803fc5f5a4376ad7.jpg"></p> <p>图片.png</p> <p>图（3）百度搜索中spring boot的搜索热度</p> <p>图（3）是百度地图统计的结果，我们可以看到spring boot在国内是2015年6月开始流行的，2017年增长尤为突出。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/9408f269002a965d82330ab3b4d629e9.jpg"></p> <p>图片.png</p> <p>图（4）百度搜索中spring cloud的搜索热度</p> <p>图（4）我们可以看到，spring cloud是从2016年6月开始在中国流行，往往新技术要在中国流行，都会落后硅谷一年，看看一年前的硅谷，就是现在的中国，所以大家也就能够判断到了spring cloud在中国的发展曲线了，也就是2018年2月spring cloud在中国的热度将达到顶峰。</p> <p>虽然流行并不代表你需要。但是，既然流行就有他流行的原因，就有他优点。后面我们将回来认识下微服务。</p> <h2>什么是微服务</h2> <p>微服务是用一组小服务的方式来构建一个应用，服务独立运行在不同的进程中，服务之间通过轻量的通讯机制（如RESTful接口）来交互，并且服务可以通过自动化部署方式独立部署。正因为微服务架构中，服务之间是相互独立的，所以不同的服务可以使用不同的语言来开发，或者根据业务的需求使用不同类型的数据库。</p> <h2>微服务架构的优点与挑战</h2> <p><strong>优势</strong></p> <ul> <li> <p>服务简单，只关注一个业务功能<br /> 传统的整体风格的架构在构建部署和扩展伸缩方面有很大的局限性，其服务端应用就像是一块铁板，笨重且不可拆分，系统中任何程序的改变都需要整个应用重新构建和部署新版本。在进行水平扩展时也只能整个系统扩展，而不能针对某一个功能模块进行扩展。 而微服务架构将系统以组件化的方式分解为多个服务，服务之间相对独立且松耦合，单一功能的改变只需要重新构建部署相应的服务即可。</p> </li> <li> <p>每个微服务可由不同团队开发<br /> 传统的开发模式在分工时往往以技术为单位，比如UI团队、服务端团队和数据库团队，这样的分工可能会导致任何功能上的改变都需要跨团队沟通和协调。而微服务则倡导围绕服务来分工，不同的服务可以采用不同的技术来实现，一个团队中应该包含开发所需的所有技能，比如用户体验、数据库、项目管理。</p> </li> <li> <p>微服务是松散耦合的<br /> 微服务架构抛弃了ESB复杂的业务规则编排、消息路由等功能，微服务架构中服务是高内聚的，每个服务都会处理相应的业务，所有的业务逻辑应该尽量在服务内部处理，且服务间的通信尽可能的轻量化，比如使用Restful的方式。</p> </li> <li> <p>可用不同的编程语言与工具开发<br /> 传统的软件开发中经常会使用同一个技术平台来解决所有的问题，而经验表明使用合适的工具做合适的事情会让开发变得事半功倍。微服务架构天生就具有这样的特性，我们可以使用Node.js来开发一个简单的报表页面，使用C++来编写一个实时聊天组件。</p> </li> </ul> <p><strong>挑战</strong></p> <ul> <li> <p>运维开销<br /> 更多的服务也就意味着更多的运维，产品团队需要保证所有的相关服务都有完善的监控等基础设施，传统的架构开发者只需要保证一个应用正常运行，而现在却需要保证几十甚至上百道工序高效运转，这是一个艰巨的任务。</p> </li> <li> <p>DevOps要求<br /> 使用微服务架构后，开发团队需要保证一个Tomcat集群可用，保证一个数据库可用，这就意味着团队需要高品质的DevOps和自动化技术。而现在，这样的全栈式人才很少。</p> </li> <li> <p>隐式接口<br /> 服务和服务之间通过接口来“联系”，当某一个服务更改接口格式时，可能涉及到此接口的所有服务都需要做调整。</p> </li> <li> <p>重复劳动<br /> 在很多服务中可能都会使用到同一个功能，而这一功能点没有足够大到提供一个服务的程度，这个时候可能不同的服务团队都会单独开发这一功能，重复的业务逻辑，这违背了良好的软件工程中的很多原则。</p> </li> <li> <p>分布式系统的复杂性<br /> 微服务通过REST API或消息来将不同的服务联系起来，这在之前可能只是一个简单的远程过程调用。分布式系统也就意味着开发者需要考虑网络延迟、容错、消息序列化、不可靠的网络、异步、版本控制、负载等，而面对如此多的微服务都需要分布式时，整个产品需要有一整套完整的机制来保证各个服务可以正常运转。</p> </li> <li> <p>事务、异步、测试面临挑战<br /> 跨进程之间的事务、大量的异步处理、多个微服务之间的整体测试都需要有一整套的解决方案，而现在看起来，这些技术并没有成熟。</p> </li> </ul> <h2>微服务设计原则</h2> <ul> <li> <p>隔离<br /> 服务必须设计为单独相互隔离工作。当你将一个整体单片系统分解成一组服务时，这些服务必须彼此解耦，这样才能更加连贯和自给自足。每个服务应该能够处理其自己的故障，而不会影响或破坏整个应用程序或系统。隔离和解耦特性使服务能够非常快速地从故障状态中恢复。服务的隔离特性具有以下优点：容易采用连续交付，更好的扩展，有效的监控和可测试性。</p> </li> <li> <p>自治性<br /> 隔离为自治性铺平了道路。 服务必须设计为自主自治的。它必须具有凝聚力，能够独立地实现其职能。每个服务可以使用良好定义的API（URI）独立调用。API以某种方式标识服务功能。自主服务还必须处理自己的数据。更流行的术语是多语言持久性，其中每个服务都有自己的持久存储。 自主还确保弹性。自主服务具有以下优点：有效的服务编排和协调，更好的扩展，通过良好定义的API进行通信，更快速和可控的部署。</p> </li> <li> <p>单一责任<br /> 服务必须设计为高度凝聚。单一的职责（责任）原则是服务只执行一个重要的功能。 单一责任与“微观”一词很好地结合。‘微’意味着小，细粒度，只与其责任范围内相关。单一责任功能具有以下优点：服务组合无缝，更好的扩展，可重用性，可扩展性和可维护性。</p> </li> <li> <p>有界上下文<br /> 您的服务应该有多大或小？ 答案就在于所谓有界上下文设计原则。这是一个关键模式，同时是领域驱动设计（DDD）建模方法。有界的上下文是关于微服务将提供其服务功能的上下文。它根据有关领域模型和识别离散边界，并相应地设计您的微服务，使其更具凝聚力和自主性。这也意味着跨边界的通信变得更有效率，在一个有界上下文中的服务不需要依赖于另外一个有限上下文中的太多的事情了。</p> </li> <li> <p>异步通信<br /> 在设计离散边界和使用其自己的有界上下文设计服务时，跨边界的服务通信必须是异步的。异步通信模式自然导致服务之间的松耦合，并允许更好的缩放。使用同步通信，会阻止调用并等待响应。 处于阻塞状态的服务不能执行另一个任务，直到接收到响应并释放底层线程为止。它导致网络拥塞，并影响延迟和吞吐量。异步通信还可以带来实现良好定义的集成或通信模式的概念，以实现涉及不同服务的逻辑工作流。</p> </li> <li> <p>位置独立<br /> 根据设计，微服务是在虚拟化环境或docker容器中部署。随着云计算的出现，我们可以拥有大量可以利用动态缩放环境的服务实例。服务可以在跨小型或大型集群的多个节点上运行。服务本身可以根据底层计算资源的可用性或效率来重新定位。必须能够以位置独立的方式来寻址或定位服务。通常，可以使用不同的查找发现模式来消费使用您的服务。服务的客户端或消费者不必烦恼部署或配置特定服务的位置。它只是使用某种逻辑或虚拟地址来定位服务。</p> </li> </ul> <p>转载：</p> </h1> <p>0.9752019.05.15 18:05:16字数 4595阅读 393</p> <h2>单体架构存在的问题</h2> <p>在传统的软件技术架构系统中，基本上将业务功能集中在单一应用内，或者是单一进程中。尽管现代化的软件架构理论以及设计原则已推广多年，但实际技术衍化的速度迟缓并且变革动力不足。 其中的原因存在着复杂性以及多样性，我想主要的原因是没有一套整体的解决方案能够让工程师在面临稳定性风险下，毅然决然地实施系统重构。当系统应用规模随着业务的迅速发展时，系统的重要性愈发突出，开发人员将对系统的改造尤为敏感，从之前的徘徊犹豫，随之变得更加保守，只能延续过去的技术方案，将功能不断地累积在原有的系统架构上。这样的系统好比是豆腐叠罗汉，叠得越高越危险。因此，当面临巨大的服务压力时，系统不得不通过扩容的方式，来支撑应对。俗话说，“船小好调头”，“头病医头，脚病医脚”。臃肿的系统使得扩容变得毫无针对性，牵一发而动全身。由于服务运行情况存在差异性，具体哪个功能存在性能瓶颈，又因服务并非孤立而存在，使得评估结果存在着主观臆断性和不确定性，这种相互影响和作用下，使得扩容变得异常的困难，扩容无法量化，最终导致“水桶效应”。</p> <p>当应用场景规模增大时，为了提高了开发以及执行的效率，并且使得更优雅或者合适的解决问题成为可能，开发人员将会评估和选择更先进的技术，推动演进。由于系统应用过分地集中了所有功能，其功能所需依赖服务以及执行库文件也随之变得庞大，当需要适配新的技术时，不仅依赖冲突难存在不确定性并且难以应付，进而使代码重构变得异常困难，增加了适配新技术的难度。</p> <p>正因为功能集中于一身，让应用资源占用率变得越来越大，使得持续集成、回归测试、以及分发部署变得愈发困难。比如，应用部署包磁盘占变多，让编译、打包、分发以及启动时间变长，不确定性因素变得更大。当应用发布上线后，存在功能性缺陷，需要回滚时，这样的试错和时间成本变得更加昂贵。</p> <p>越是功能集中式的系统架构，在开发工程中，越依赖于与执行环境。这种执行环境承载着数据、服务以及配置，如若其中那个环节出现问题，开发进程不得不被迫中断，而不断地诊断问题和调试环境，使得快速开发变得要不可及，更不要说在本地开发。由于对环境的过分依赖，使得系统的稳定性变得更不确定性。其一，由于服务相互依赖，而服务又依赖环境，开发人员对单元测试职业习惯以及依赖程度降低，使得测试环节减少，或者说更依赖于集成测试。其二，当测试人员在部署测试环境执行集成测试时，不但部署成功率不断地降低，而且执行过程时间不断地增加，压缩了开发时间，也可能导致项目滞后。不仅提高了系统风险，并且增加了心理负担。这么说来，无论是快速开发和测试都变得更加艰难。</p> <p>以上分析还只是停留在那些熟悉业务和技术的成员，当业务快速发展时，其发展速度与开发效率比不断扩大，招募和发展新人是必不可少的手段。当面对如此巨大和复杂的系统应用时，业务和技术所需的知识变得特别杂糅，让新人有一种“独上高楼望，尽天涯路”之感，学习曲线陡峭。在实际的实施过程中，文档完整性以及指导的系统性皆存在不足。</p> <h2>如何解决单体架构存在的问题</h2> <p><strong>单体应用给我们带来的现实问题：</strong></p> <ul> <li>扩容困难（Problems in scalability ）</li> <li>部署困难（Problems in deployment）</li> <li>发布回滚困难（Problems in release rollback）</li> <li>适配新技术困难（ Problems in adopting new technologies ）</li> <li>快速开发困难（Problems in RAD）</li> <li>测试困难（Problems in testing）</li> <li>学习困难（Problems in learning）</li> </ul> <p>实际上，在解决单体应用的问题上，数年前，就出现了相应的解决方法，比如SOA的技术路线。</p> <p>SOA解决一个现实的问题，那就是服务与服务之间解耦，将古老的进程内服务调用，通过网络协议转化成服务之间的调用。从早期发明了CORBA、RMI、COM+、XML-PPC等技术，不过问题也随之出现，由于这些技术绑定在某种技术或者平台，比如RMI属于Java 平台技术，COM+属于微软技术体系，XML=PRC没有统一的协议标准，因此对平台无关性的通讯需要的协议呼声强烈，这时一些典型的技术陆续出现，如WebServices以及MessageQueue。以及它们的集大成技术ESB。</p> <p>其中的代表技术有：WSDL（Web Service Definition Language）、SOAP（Simple Object Access Prototol）等技术。由于这些通讯协议标准相对笨重，虽然目前仍在被广泛的使用，但逐步被淘汰是大势所趋。</p> <h2>为什么不选SOA而选微服务</h2> <p>面向服务架构（SOA） VS 微服务</p> <p>类同</p> <ul> <li>面向服务（ Service-Oriented ）</li> <li>松耦合（Loose-Coupling）</li> <li>自包含（Self-Contained）</li> <li>平台无关性（Independent Platform）</li> </ul> <p>差异</p> <ul> <li>原子性（Atomic）</li> <li>自治性（Autonomous）</li> <li>开发运维体系（DevOps）</li> <li>轻量级（Lightweight）</li> <li>通讯协议（Communication Protocol）</li> </ul> <p>微服务是粒度小的SOA，正由于SOA体系庞大，不可能实现更好的原子性，并且它采用了统一统治的方式，例如ESB那样的大型解决方案。这样技术选型，针对单一的服务无法实现自行管理，无形之中增加了团队运维成本。开发人员不能很好的实施DevOps技术手段。同时，SOA采用了WSDL、SOAP等重量级的通讯协议，增加了开发成本以及性能损耗。在微服务中，大多数服务API通过REST的方式暴露，这样大大地降低了适配的成本。</p> <p>微服务是趋势</p> <p>让我们看看google和百度统计的结果吧</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/77555ad72dbf1d16680abe3d77df119d.jpg"></p> <p>图片.png</p> <p>图（1）Google中spring boot的搜索热度</p> <p>spring boot和spring cloud是做微服务的最佳搭档。从图（1）上，我们能够看到spring boot 2013年在全球开始流行，一直到2017年2月到了100的热度。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/52c4f9a184912dd9d3fd8e78b84439a5.jpg"></p> <p>图片.png</p> <p>图（2）google中spring cloud的搜索热度</p> <p>从图（2）上，我们可以看到spring cloud从2012年开始热度都是比较平和，在2015年6月之后，也就是微服务开始兴起的时候，spring cloud开始迅速增长，在2017年2月达到了100的搜索热度。（地图上没有中国，估计是因为中国被墙掉了的原因）</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/8c24f6272a2254a5803fc5f5a4376ad7.jpg"></p> <p>图片.png</p> <p>图（3）百度搜索中spring boot的搜索热度</p> <p>图（3）是百度地图统计的结果，我们可以看到spring boot在国内是2015年6月开始流行的，2017年增长尤为突出。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/9408f269002a965d82330ab3b4d629e9.jpg"></p> <p>图片.png</p> <p>图（4）百度搜索中spring cloud的搜索热度</p> <p>图（4）我们可以看到，spring cloud是从2016年6月开始在中国流行，往往新技术要在中国流行，都会落后硅谷一年，看看一年前的硅谷，就是现在的中国，所以大家也就能够判断到了spring cloud在中国的发展曲线了，也就是2018年2月spring cloud在中国的热度将达到顶峰。</p> <p>虽然流行并不代表你需要。但是，既然流行就有他流行的原因，就有他优点。后面我们将回来认识下微服务。</p> <h2>什么是微服务</h2> <p>微服务是用一组小服务的方式来构建一个应用，服务独立运行在不同的进程中，服务之间通过轻量的通讯机制（如RESTful接口）来交互，并且服务可以通过自动化部署方式独立部署。正因为微服务架构中，服务之间是相互独立的，所以不同的服务可以使用不同的语言来开发，或者根据业务的需求使用不同类型的数据库。</p> <h2>微服务架构的优点与挑战</h2> <p><strong>优势</strong></p> <ul> <li> <p>服务简单，只关注一个业务功能<br /> 传统的整体风格的架构在构建部署和扩展伸缩方面有很大的局限性，其服务端应用就像是一块铁板，笨重且不可拆分，系统中任何程序的改变都需要整个应用重新构建和部署新版本。在进行水平扩展时也只能整个系统扩展，而不能针对某一个功能模块进行扩展。 而微服务架构将系统以组件化的方式分解为多个服务，服务之间相对独立且松耦合，单一功能的改变只需要重新构建部署相应的服务即可。</p> </li> <li> <p>每个微服务可由不同团队开发<br /> 传统的开发模式在分工时往往以技术为单位，比如UI团队、服务端团队和数据库团队，这样的分工可能会导致任何功能上的改变都需要跨团队沟通和协调。而微服务则倡导围绕服务来分工，不同的服务可以采用不同的技术来实现，一个团队中应该包含开发所需的所有技能，比如用户体验、数据库、项目管理。</p> </li> <li> <p>微服务是松散耦合的<br /> 微服务架构抛弃了ESB复杂的业务规则编排、消息路由等功能，微服务架构中服务是高内聚的，每个服务都会处理相应的业务，所有的业务逻辑应该尽量在服务内部处理，且服务间的通信尽可能的轻量化，比如使用Restful的方式。</p> </li> <li> <p>可用不同的编程语言与工具开发<br /> 传统的软件开发中经常会使用同一个技术平台来解决所有的问题，而经验表明使用合适的工具做合适的事情会让开发变得事半功倍。微服务架构天生就具有这样的特性，我们可以使用Node.js来开发一个简单的报表页面，使用C++来编写一个实时聊天组件。</p> </li> </ul> <p><strong>挑战</strong></p> <ul> <li> <p>运维开销<br /> 更多的服务也就意味着更多的运维，产品团队需要保证所有的相关服务都有完善的监控等基础设施，传统的架构开发者只需要保证一个应用正常运行，而现在却需要保证几十甚至上百道工序高效运转，这是一个艰巨的任务。</p> </li> <li> <p>DevOps要求<br /> 使用微服务架构后，开发团队需要保证一个Tomcat集群可用，保证一个数据库可用，这就意味着团队需要高品质的DevOps和自动化技术。而现在，这样的全栈式人才很少。</p> </li> <li> <p>隐式接口<br /> 服务和服务之间通过接口来“联系”，当某一个服务更改接口格式时，可能涉及到此接口的所有服务都需要做调整。</p> </li> <li> <p>重复劳动<br /> 在很多服务中可能都会使用到同一个功能，而这一功能点没有足够大到提供一个服务的程度，这个时候可能不同的服务团队都会单独开发这一功能，重复的业务逻辑，这违背了良好的软件工程中的很多原则。</p> </li> <li> <p>分布式系统的复杂性<br /> 微服务通过REST API或消息来将不同的服务联系起来，这在之前可能只是一个简单的远程过程调用。分布式系统也就意味着开发者需要考虑网络延迟、容错、消息序列化、不可靠的网络、异步、版本控制、负载等，而面对如此多的微服务都需要分布式时，整个产品需要有一整套完整的机制来保证各个服务可以正常运转。</p> </li> <li> <p>事务、异步、测试面临挑战<br /> 跨进程之间的事务、大量的异步处理、多个微服务之间的整体测试都需要有一整套的解决方案，而现在看起来，这些技术并没有成熟。</p> </li> </ul> <h2>微服务设计原则</h2> <ul> <li> <p>隔离<br /> 服务必须设计为单独相互隔离工作。当你将一个整体单片系统分解成一组服务时，这些服务必须彼此解耦，这样才能更加连贯和自给自足。每个服务应该能够处理其自己的故障，而不会影响或破坏整个应用程序或系统。隔离和解耦特性使服务能够非常快速地从故障状态中恢复。服务的隔离特性具有以下优点：容易采用连续交付，更好的扩展，有效的监控和可测试性。</p> </li> <li> <p>自治性<br /> 隔离为自治性铺平了道路。 服务必须设计为自主自治的。它必须具有凝聚力，能够独立地实现其职能。每个服务可以使用良好定义的API（URI）独立调用。API以某种方式标识服务功能。自主服务还必须处理自己的数据。更流行的术语是多语言持久性，其中每个服务都有自己的持久存储。 自主还确保弹性。自主服务具有以下优点：有效的服务编排和协调，更好的扩展，通过良好定义的API进行通信，更快速和可控的部署。</p> </li> <li> <p>单一责任<br /> 服务必须设计为高度凝聚。单一的职责（责任）原则是服务只执行一个重要的功能。 单一责任与“微观”一词很好地结合。‘微’意味着小，细粒度，只与其责任范围内相关。单一责任功能具有以下优点：服务组合无缝，更好的扩展，可重用性，可扩展性和可维护性。</p> </li> <li> <p>有界上下文<br /> 您的服务应该有多大或小？ 答案就在于所谓有界上下文设计原则。这是一个关键模式，同时是领域驱动设计（DDD）建模方法。有界的上下文是关于微服务将提供其服务功能的上下文。它根据有关领域模型和识别离散边界，并相应地设计您的微服务，使其更具凝聚力和自主性。这也意味着跨边界的通信变得更有效率，在一个有界上下文中的服务不需要依赖于另外一个有限上下文中的太多的事情了。</p> </li> <li> <p>异步通信<br /> 在设计离散边界和使用其自己的有界上下文设计服务时，跨边界的服务通信必须是异步的。异步通信模式自然导致服务之间的松耦合，并允许更好的缩放。使用同步通信，会阻止调用并等待响应。 处于阻塞状态的服务不能执行另一个任务，直到接收到响应并释放底层线程为止。它导致网络拥塞，并影响延迟和吞吐量。异步通信还可以带来实现良好定义的集成或通信模式的概念，以实现涉及不同服务的逻辑工作流。</p> </li> <li> <p>位置独立<br /> 根据设计，微服务是在虚拟化环境或docker容器中部署。随着云计算的出现，我们可以拥有大量可以利用动态缩放环境的服务实例。服务可以在跨小型或大型集群的多个节点上运行。服务本身可以根据底层计算资源的可用性或效率来重新定位。必须能够以位置独立的方式来寻址或定位服务。通常，可以使用不同的查找发现模式来消费使用您的服务。服务的客户端或消费者不必烦恼部署或配置特定服务的位置。它只是使用某种逻辑或虚拟地址来定位服务。</p> </li> </ul> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/393d86aade3e"  rel="nofollow">转载:https://www.jianshu.com/p/393d86aade3e</a></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/a912d112cc1fc557a717c190e36de5cc.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/7a1dc7bef58b8b39b39a2e02469fc6e4.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/b190e42000109a14b61c74dee03afe35.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/b139ef7e0b1dc2a4d2614ae63cc946b5.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/a9edf22e979e8a186e1474a2990bcd1c.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/fb168dab74be16e8a0a2f90685d4bc30.jpg"></p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="194" src="http://img.555519.xyz/uploads3/20220822/bc41ec6445516c9b7a4b03cf7b1d9962.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/9f89a1d8ff707f5aeea8cac3353a2f55.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/4919bb71f42b6f95a051ec36b9ba5ece.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/69d6410785cddc99537e08f127e788a7.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/ab421e4e677ba9599855eafad362643e.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/583377b5a98e27f3522c1c9d273c5ace.jpg"></p> <p><img decoding="async" alt="" class="has" height="156" src="http://img.555519.xyz/uploads3/20220822/f2be9772a6bf478491e96b083f1edf67.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/8cfaee4b1a400343ff22215a17b4f52f.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/bad7c5b3487b58f583954842a6c26098.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220822/9afd1fd8c304a5e162f0702a19bcf59e.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-42564.htm">vue vue-router ElementUI导航栏重复点菜单报错问题</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24343.htm" title="开办宠物医院必须具备的条件是什么意思（开宠物医院需要哪些条件）">开办宠物医院必须具备的条件是什么意思（开宠物医院需要哪些条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-mihomo-github.htm" title="11月19日→19.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月19日→19.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-mihomo-node-share.htm" title="12月20日→21.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月20日→21.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40566.htm" title="宠物狗粮销售招聘要求（狗粮招聘业务）">宠物狗粮销售招聘要求（狗粮招聘业务）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-mihomo-node-github.htm" title="12月3日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月3日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-mihomo-node-github.htm" title="12月30日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">12月30日→21.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41062.htm" title="当我们更改小于当前序列号的AUTO_INCREMENT值时，MySQL将返回什么？">当我们更改小于当前序列号的AUTO_INCREMENT值时，MySQL将返回什么？</a></li>
+                        <li class="py-2"><a href="/news/article-38592.htm" title="动物疫苗销售许可证如何办理流程视频讲解（动物疫苗经营许可）">动物疫苗销售许可证如何办理流程视频讲解（动物疫苗经营许可）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-mihomo-node-github.htm" title="11月15日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月15日→20.6M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38112.htm" title="领养宠物收费吗（领养宠物免费吗）">领养宠物收费吗（领养宠物免费吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
