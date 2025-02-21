@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-60477.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>python hdfs远程连接以及上传文件，读取文件内容，删除文件</title>
+        <meta name="description" content="目录 一、python连接操作hdfs 1 往hdfs上传文件 2 处理并存储到hdfs 3 读取hdfs上的txt文件  这里使用的是 pip 安装，很方便： pip install hdfs  f" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-60477.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="python hdfs远程连接以及上传文件，读取文件内容，删除文件" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/41d58c0cd8dd07fe7ce832175a532dbd.webp" />
+        <meta property="og:release_date" content="2025-02-21T09:20:50" />
+    <meta property="og:updated_time" content="2025-02-21T09:20:50" />
+        <meta property="og:description" content="目录 一、python连接操作hdfs 1 往hdfs上传文件 2 处理并存储到hdfs 3 读取hdfs上的txt文件  这里使用的是 pip 安装，很方便： pip install hdfs  f" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python hdfs远程连接以及上传文件，读取文件内容，删除文件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">python hdfs远程连接以及上传文件，读取文件内容，删除文件</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="%E4%B8%80%E3%80%81python%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9Chdfs-toc" style="margin-left:0px;"><a href="#%E4%B8%80%E3%80%81python%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9Chdfs" rel="nofollow">一、python连接操作hdfs</a></p> <p id="1%20%E5%BE%80hdfs%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6-toc" style="margin-left:40px;"><a href="#1%20%E5%BE%80hdfs%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6" rel="nofollow">1 往hdfs上传文件</a></p> <p id="2%20%E5%A4%84%E7%90%86%E5%B9%B6%E5%AD%98%E5%82%A8%E5%88%B0hdfs-toc" style="margin-left:40px;"><a href="#2%20%E5%A4%84%E7%90%86%E5%B9%B6%E5%AD%98%E5%82%A8%E5%88%B0hdfs" rel="nofollow">2 处理并存储到hdfs</a></p> <p id="3%20%E8%AF%BB%E5%8F%96hdfs%E4%B8%8A%E7%9A%84txt%E6%96%87%E4%BB%B6-toc" style="margin-left:40px;"><a href="#3%20%E8%AF%BB%E5%8F%96hdfs%E4%B8%8A%E7%9A%84txt%E6%96%87%E4%BB%B6" rel="nofollow">3 读取hdfs上的txt文件</a></p> <hr id="hr-toc"/> <p>这里使用的是 pip 安装，很方便：</p> <pre><code class="language-python">pip install hdfs</code></pre> </h1> <pre><code class="language-python">from hdfs.client import Client client = Client("http://LocalHost:Port")  client.makedirs('/ml/zmingmingmng')#建立文件夹 client.delete('/ml/zmming')#删除文件夹 client.upload("/ml/zmingmingmng/zm.txt","E:/ttt/testhdfs.txt")#上传文件 client.download("/ml/zmingmingmng/zm.txt","E:/ming.txt")#下载文件 </code></pre> <pre><code class="language-python"># -*- encoding=utf-8 -*- from hdfs.client import Client   client = Client("http://XXX.XXX.XX.XX:50070")  # 创建目录 def mkdirs(client, hdfs_path):     client.makedirs(hdfs_path)   # 删除hdfs文件 def delete_hdfs_file(client, hdfs_path):     client.delete(hdfs_path)   # 上传文件到hdfs def put_to_hdfs(client, local_path, hdfs_path):     client.upload(hdfs_path, local_path, cleanup=True)   # 从hdfs获取文件到本地 def get_from_hdfs(client, hdfs_path, local_path):     client.download(hdfs_path, local_path, overwrite=False)   # 追加数据到hdfs文件 def append_to_hdfs(client, hdfs_path, data):     client.write(hdfs_path, data, overwrite=False, append=True)   # 覆盖数据写到hdfs文件 def write_to_hdfs(client, hdfs_path, data):     client.write(hdfs_path, data, overwrite=True, append=False)   # 移动或者修改文件 def move_or_rename(client, hdfs_src_path, hdfs_dst_path):     client.rename(hdfs_src_path, hdfs_dst_path)   # 返回目录下的文件 def list(client, hdfs_path):     return client.list(hdfs_path, status=False)   if __name__ == '__main__':     # 调用     kk=list(client,"/user/admin/deploy/user_lable_dimension/")     for each in kk:         print(each)   </code></pre> <p>&nbsp;</p> <h2 id="1%20%E5%BE%80hdfs%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6">1 往hdfs上传文件</h2> <pre><code class="language-python">from hdfs.client import Client  """往hdfs上传文件"""  # TODO 往hdfs上传文件 client = Client("http://XXX.XXX.XX.XX:50070")  # 新建文件夹 hdfs_path ="【文件要存放的目录路径,eg:/a/b/c】" client.makedirs(hdfs_path)  print("uploading data...") client.upload(hdfs_path, "intersection.xlsx", overwrite=True)	# 资源中心上传的文件 </code></pre> <p>&nbsp;</p> <h2 id="2%20%E5%A4%84%E7%90%86%E5%B9%B6%E5%AD%98%E5%82%A8%E5%88%B0hdfs">2 处理并存储到hdfs</h2> <pre><code class="language-python"># TODO 先得到结果列表。eg:i_list  # TODO 把结果列表存储成文件上传到hdfs print("===============================================") i_df = pd.DataFrame(i_list) client = Client("http://XXX.XXX.XX.XX:50070")  fout = "【文件要存放的路径,eg:/a/b/c.csv】"  # hdfs下的目录 with client.write(fout, encoding='utf-8') as writer:     i_df.to_csv(writer) print("存储成功")</code></pre> <p>&nbsp;</p> <h2 id="3%20%E8%AF%BB%E5%8F%96hdfs%E4%B8%8A%E7%9A%84txt%E6%96%87%E4%BB%B6">3 读取hdfs上的txt文件</h2> <pre><code class="language-python">from hdfs.client import Client import json from kafka import KafkaConsumer import time import pyhdfs  def  GetEncodingSheme(_filename):     """ 查看文本编码方式 """     with open(_filename, 'rb') as file:         buf = file.read()     result = chardet.detect(buf)     return result['encoding']   def read_hdfs_file(client, filename):     """读取hdfs文件内容,将每行存入数组返回"""     lines = []     print("开始读取txt数据")     with client.open(filename, delimiter='\n') as reader:         for line in reader:             lines.append(line.decode("GB2312").strip())     return lines   def deleteHDFSfile(client, hdfs_path):     """删除hdfs文件,删除文件夹时该文件夹必须为空"""     client.delete(hdfs_path)    if __name__ == "__main__": 	print(GetEncodingSheme('intersection.xlsx'))    # GB2312          # hdfs连接     client = pyhdfs.HdfsClient(hosts="http://xxxxxx:50070,http://xxxxxx:50070", user_name="xxxxxx")      # TODO 读取hdfs文件内容,将每行存入数组返回     hdfs_path = "【文件路径,eg:/a/b/c.xlsx】"    # hdfs存储目录     print("===============================================")     print("开始读取hdfs上的txt文件")     lines = read_hdfs_file(client, hdfs_path)     print(lines)     print("读取完成")     print("===============================================")       # TODO 删除hdfs存储目录下的文件     hdfs_path = "【文件路径】"     deleteHDFSfile(client, hdfs_path)</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59875.htm">山东联美弹簧科技股份有限公司怎么样（山东联美弹簧科技股份有限公司怎么样啊）</a></p>
+                                        <p>下一个：<a href="/news/article-60478.htm">大人让猫挠了轻微出血有事吗图片（大人让猫爪子抓出血了怎么办）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-mihomo-node-share.htm" title="11月9日→19.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月9日→19.7M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-subscribe-node.htm" title="2月6日→18.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">2月6日→18.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23892.htm" title="vue的axios两种导入方法">vue的axios两种导入方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe-links.htm" title="1月16日→21.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月16日→21.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-57029.htm" title="家用铁锅品牌前十大排名榜(家用铁锅哪家好)">家用铁锅品牌前十大排名榜(家用铁锅哪家好)</a></li>
+                        <li class="py-2"><a href="/news/article-26686.htm" title="孕妇让猫咪抓伤有一点血（怀孕让猫挠了出血了没有事吧）">孕妇让猫咪抓伤有一点血（怀孕让猫挠了出血了没有事吧）</a></li>
+                        <li class="py-2"><a href="/news/article-31855.htm" title="动物疫苗批号怎么查（动物疫苗批签发查询）">动物疫苗批号怎么查（动物疫苗批签发查询）</a></li>
+                        <li class="py-2"><a href="/news/article-60478.htm" title="大人让猫挠了轻微出血有事吗图片（大人让猫爪子抓出血了怎么办）">大人让猫挠了轻微出血有事吗图片（大人让猫爪子抓出血了怎么办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-free-node-subscribe.htm" title="2月10日→19.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">2月10日→19.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50026.htm" title="vue中动态控制btn的disabled属性方式_vue.js">vue中动态控制btn的disabled属性方式_vue.js</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
