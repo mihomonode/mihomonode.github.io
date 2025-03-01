@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-64035.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微信APP支付V3版本签名 APP下单/订单查询接口Python版实现</title>
+        <meta name="description" content="问题背景 最近接入微信支付，微信官方并没有提供Python版的服务端SDK，因而只能根据文档手动实现一版，这里记录一下微信支付的整体流程、踩坑过程与最终具体实现。 微信支付APP下单流程 根据微信官方" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-64035.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="微信APP支付V3版本签名 APP下单/订单查询接口Python版实现" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/41d58c0cd8dd07fe7ce832175a532dbd.webp" />
+        <meta property="og:release_date" content="2025-02-27T05:56:43" />
+    <meta property="og:updated_time" content="2025-02-27T05:56:43" />
+        <meta property="og:description" content="问题背景 最近接入微信支付，微信官方并没有提供Python版的服务端SDK，因而只能根据文档手动实现一版，这里记录一下微信支付的整体流程、踩坑过程与最终具体实现。 微信支付APP下单流程 根据微信官方" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="微信APP支付V3版本签名 APP下单/订单查询接口Python版实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">微信APP支付V3版本签名 APP下单/订单查询接口Python版实现</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2 id="问题背景">问题背景</h2> <p>最近接入微信支付，微信官方并没有提供Python版的服务端SDK，因而只能根据文档手动实现一版，这里记录一下微信支付的整体流程、踩坑过程与最终具体实现。</p> <h2 id="微信支付app下单流程">微信支付APP下单流程</h2> <p>根据微信官方文档:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/apiv3/open/pay/chapter2_5_2.shtml"  target="_blank" rel="nofollow">https://pay.weixin.qq.com/wiki/doc/apiv3/open/pay/chapter2_5_2.shtml</a><br /> 下单流程如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6f2196b37e8631dfecd9b61a8399317b.jpg" alt="微信APP支付V3版本签名 APP下单/订单查询接口Python版实现"><br /> 和支付宝不同，微信多了一个预付单的概念，这里把APP下单实际分为四大部分，其中包含请求微信后端需要的首次签名和需要返回给APP的二次支付信息签名--<font color="red">这里踩一个小坑</font>，流程图中并没把第二次签名支付信息需要返回给APP的步骤画出来(即下面的步骤6.5)，因而一开始误以为只需要返回prepay_id给客户端，导致校验失败。<br /> 一. 对应步骤1~4，APP 请求业务后端，业务后台进行V3签名后，请求微信后端生成预付单prepay_id<br /> 二. 对应步骤5~6.5，业务后端收到微信后端返回prepay_id，将支付相关参数打包进行二次签名后返回给APP，这里相比流程图多了一个6.5--即业务后端返回签名支付信息到APP<br /> 三. 对应步骤7~18，APP收到业务后端返回签名支付信息后调起SDK发起支付请求，收到同步消息结果通知<br /> 四. 对应步骤19~22，APP查询业务后端，业务后端通过回调通知或直接查询微信后端返回最终支付结果</p> <h2 id="代码实现">代码实现</h2> <h3 id="首次签名逻辑">首次签名逻辑</h3> <p>第一次请求生成预付单号的签名文档为：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/apiv3/wechatpay/wechatpay4_0.shtml"  target="_blank" rel="nofollow">https://pay.weixin.qq.com/wiki/doc/apiv3/wechatpay/wechatpay4_0.shtml</a>, 共5个部分参与签名，其组成格式为：</p> <pre><code>HTTP请求方法\nURL\n请求时间戳\n请求随机串\n请求报文主体\n</code></pre> <p>对应签名代码:</p> <pre><code>class WechatPayDALBase(object):     def __init__(self, mch_appid, mchid, v3key, serial_no, client_key):         self.mch_appid = mch_appid         self.mchid = mchid         self.v3key = v3key         # serial_no可通过openssl直接获取, 例: openssl x509 -in 1900009191_20180326_cert.pem -noout -serial         self.serial_no = serial_no          with open(client_key, 'r') as ifile:             pkey = RSA.importKey(ifile.read())         self.signer = pkcs1_15.new(pkey)      def compute_sign_v3(self, method, url, body):         '''         V3签名逻辑         '''         ts = int(time.time())         nonce = self.generate_nonce()         uparts= parse_url(url)         ustr = uparts.path + ('?{}'.format(uparts.query) if uparts.query else '')         content = '{}\n{}\n{}\n{}\n{}\n'.format(method, ustr, ts, nonce, body)          digest = SHA256.new(content.encode('utf-8'))         sign_v = base64.b64encode(self.signer.sign(digest)).decode('utf-8')         sign_str = 'serial_no="{}",mchid="{}",timestamp="{}",nonce_str="{}",signature="{}"'.format(                     self.serial_no, self.mchid, ts, nonce, sign_v)         return sign_str      def make_headers_v3(self, url, headers=None, body='', method='GET'):         '''         微信支付V3版本签名header生成函数         '''         if not headers:             headers = {}         headers['Accept'] = 'application/json'         sign = self.compute_sign_v3(method, url, body)         auth_info = 'WECHATPAY2-SHA256-RSA2048 {}'.format(sign)         headers['Authorization'] = auth_info         return headers      def generate_nonce(self):         rnd = int(time.time()) + random.randint(100000, 1000000)         nonce = hashlib.md5(str(rnd).encode()).hexdigest()[:16]         return nonce</code></pre> <h3 id="二次签名逻辑">二次签名逻辑</h3> <p>由业务后端返回给APP的二次签名信息文档为：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_4.shtml"  target="_blank" rel="nofollow">https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_4.shtml</a><br /> 共4个部分参与签名，其组成格式为：</p> <pre><code>应用id\n时间戳\n随机字符串\n预支付交易会话ID\n</code></pre> <p>返回签名支付信息的对应代码：</p> <pre><code>    def get_pay_sign_info(self, prepay_id):         ts = int(time.time())         nonce = self.generate_nonce()         content = '{}\n{}\n{}\n{}\n'.format(self.mch_appid, ts, nonce, prepay_id)          digest = SHA256.new(content.encode('utf-8'))         sign_v = base64.b64encode(self.signer.sign(digest)).decode('utf-8')         return {             'appid': self.mch_appid,             'partnerid': self.mchid,             'timestamp': str(ts),             'noncestr': nonce,             'prepay_id': prepay_id,             'package': 'Sign=WXPay',             'sign': sign_v,         }</code></pre> <h3 id="业务后端查询订单详情">业务后端查询订单详情</h3> <p>文档地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_2.shtml"  target="_blank" rel="nofollow">https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_2.shtml</a><br /> 代码如下：</p> <pre><code>    def query_order(self, out_trade_no):         '''         查询指定订单信息         '''         url = f'https://api.mch.weixin.qq.com/v3/pay/transactions/out-trade-no/{out_trade_no}?mchid={self.mchid}'         headers = self.make_headers_v3(url)         rsp = requests.get(url, headers=headers)         pay_logger.info('out_trade_no:{}, rsp:{}|{}'.format(out_trade_no, rsp.status_code, rsp.text))         rdct = rsp.json()         return rdct</code></pre> <h3 id="业务后端调用app下单api">业务后端调用APP下单API</h3> <p>文档地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_1.shtml"  target="_blank" rel="nofollow">https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_2_1.shtml</a><br /> 代码如下：</p> <pre><code>    def create_order_info(self, data, callback_url):         '''         创建微信预支付订单, 注意包含两次签名过程:         首次签名用于请求微信后端获取prepay_id         二次签名信息返回客户端用于调起SDK支付         '''         url = 'https://api.mch.weixin.qq.com/v3/pay/transactions/app'         ndt = datetime.now()         out_trade_no = self.generate_partner_trade_no(ndt)         data = {             'mchid': self.mchid,             'out_trade_no': out_trade_no,             'appid': self.mch_appid,             'description': data['subject'],             'notify_url': callback_url,             'amount': {                 'currency': 'CNY',                 'total': int(data['price']),             },             'time_expire': (ndt + timedelta(minutes=5)).strftime('%Y-%m-%dT%H:%M:%S+08:00')         }         jdata = json.dumps(data, separators=[',', ':'])         headers = {'Content-Type': 'application/json'}         # 第一次签名, 直接请求微信后端         headers = self.make_headers_v3(url, headers=headers, body=jdata, method='POST')         rsp = requests.post(url, headers=headers, data=jdata)         pay_logger.info('rsp:{}|{}'.format(rsp.status_code, rsp.text))         rdct = rsp.json()         # 第二次签名, 返回给客户端调用         sign_info = self.get_pay_sign_info(rdct['prepay_id'])         return sign_info</code></pre> <h3 id="源码地址">源码地址</h3> <p>试水代码开源，把相关代码分享在了github：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/liuzhi67/wechat-pay-python"  target="_blank" rel="nofollow">https://github.com/liuzhi67/wechat-pay-python</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-64032.htm">0基础学MySQL数据库—从小白到大牛（1）初识数据库</a></p>
+                                        <p>下一个：<a href="/news/article-64645.htm">天津宠物狗领养中心在哪里 天津宠物狗领养中心在哪里啊</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28080.htm" title="最便宜的激光切割机(价格激光切割机)">最便宜的激光切割机(价格激光切割机)</a></li>
+                        <li class="py-2"><a href="/news/article-51601.htm" title="猫轻微抓伤有一点渗血过了24小时没事吧（猫轻微抓伤有一点渗血过了24小时没事吧）">猫轻微抓伤有一点渗血过了24小时没事吧（猫轻微抓伤有一点渗血过了24小时没事吧）</a></li>
+                        <li class="py-2"><a href="/news/article-64032.htm" title="0基础学MySQL数据库—从小白到大牛（1）初识数据库">0基础学MySQL数据库—从小白到大牛（1）初识数据库</a></li>
+                        <li class="py-2"><a href="/news/article-45040.htm" title="[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案">[Go实战]一个简单的主进程不退出(阻塞方法) 测试方案</a></li>
+                        <li class="py-2"><a href="/news/article-42058.htm" title="func-spring-boot-starter 匿名函数托管">func-spring-boot-starter 匿名函数托管</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-latest-mihomo-node.htm" title="11月16日→22.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月16日→22.3M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-mihomo-github.htm" title="11月5日→18.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址">11月5日→18.2M/S|2024年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54807.htm" title="妙三多猫三联怎么打（妙三多猫三联多少钱）">妙三多猫三联怎么打（妙三多猫三联多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-mihomo-node-github.htm" title="3月1日→21.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月1日→21.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30430.htm" title="国产儿童牙膏哪个好用(国产儿童牙膏哪个好用又便宜)">国产儿童牙膏哪个好用(国产儿童牙膏哪个好用又便宜)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
