@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-77055.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符集与编码详解</title>
+        <meta name="description" content="一个比特(bit)可以是0，或者是1，8个比特(bit)，组成一个字节(byte)。全为0时代表数字0，全为1时代表数字255。  一个字节可以表示256个数字，两个字节可以表示65536个数字。  " />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-77055.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="字符集与编码详解" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/6002969fb7a45407b1964691d3762185.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:10:37" />
+    <meta property="og:updated_time" content="2025-03-19T09:10:37" />
+        <meta property="og:description" content="一个比特(bit)可以是0，或者是1，8个比特(bit)，组成一个字节(byte)。全为0时代表数字0，全为1时代表数字255。  一个字节可以表示256个数字，两个字节可以表示65536个数字。  " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="字符集与编码详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">字符集与编码详解</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<p>一个比特(bit)可以是0，或者是1，8个比特(bit)，组成一个字节(byte)。全为0时代表数字0，全为1时代表数字255。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/72a2ae6e76b86cefca190ac717ceb191.jpg" alt="字符集与编码详解"></p> <p>一个字节可以表示256个数字，两个字节可以表示65536个数字。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9d642572984438c16f811efa8e1792ee.jpg" alt="字符集与编码详解"></p> <p>更多的字节，可以有更多的组合，就可以表示更大的数值范围。</p> <p>整数可以这么存，那字符呢？一堆二进制的0和1，怎么也算不出字母A吧。不能直接表示，那就通过数字中转一下。只要给它指定一个数值编号，要存储字符时，就存储这个数值。要读取时，按照映射关系找到这个字符。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9fd07a8084e3fcfd942b3c8078ebc331.jpg" alt="字符集与编码详解"></p> <p>像这样收录许多字符然后给它们一一编号，得到一个字符编号对照表，这就是“字符集”。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e2457525ae7734e4266d51f64cf52f27.jpg" alt="字符集与编码详解"></p> <p>ASCII字符集只收录了128个字符，其扩展字符集也只有256个。(ASCII最初被设计的目的也只是用来映射英文体系所需要的字符)</p> <p>这在只使用英文的国家貌似没什么问题，但是随着世界的互联，其它非英语母语的国家该怎么办呢？比如汉字、日文等。</p> <p>针对汉字，最先设计了GB2312字符集、但是GB2312不包含繁体字，所以又设计了BIG5字符集，但是依然有很多字符没有被收录，其它国家的字体也不在其中</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f05ed1e5caf37e7f077782efc8b0731b.jpg" alt="字符集与编码详解"></p> <p>与其不断推出收录更多字符的字符集，还不如本着全球化统一标准的目的，制作一个通用字符集，Unicode学术学会就是这样做的，这个字符集就是Unicode，它于1990年开始研发并于1994年正式公布，实现了跨语言跨平台的文本转换与处理，字符集促成了字符与二进制的合作。但是有了字符集就万事大吉了吗？那怎么存储(eggo世界)这个内容呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/49b42fd1c283de57966957588f2004e1.jpg" alt="字符集与编码详解"></p> <p>直接的想法是，找到每个字符对应的编号，存成二进制，如果使用unicode字符集，拿到他们的编号，直接组合会得到这样一大串二进制位</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/29c0044bc85a4769109e751c6d5609fd.jpg" alt="字符集与编码详解"></p> <p>问题出现了，该怎么知道这一长串内容是要按照下面的方式划分的呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d949208baf16c1de5e2cf243204ec5f2.jpg" alt="字符集与编码详解"></p> <p>也可以按照下面的方式划分呀</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/43c77982d7d437c112d445b108e37bd5.jpg" alt="字符集与编码详解"></p> <p>所以，照搬编号的方式，行不通！！！</p> <p>那现在我们可以知道了，编码完成之后还需要解决的一个问题是如何划分字符边界。</p> <p>其中一个方法可以这样，不管编号多大多小，统一按照最长的编码的来，位数不够的高位补0嘛</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6996867cac1d3f13e1a98e03a4eb79c7.jpg" alt="字符集与编码详解"></p> <p>这就是定长编码，这样就可以解决字符边界的问题，但是可以发现，这样就太浪费内存了，而且字符集收录的符号越多，编号跨度就越大，定长编码造成的浪费就越显著，还得再想办法，定长编码不行，那就“变长编码”，小编号少占字节，大编号多占字节。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e0aba195e0f30f1bebcdf5f9f7578f6b.jpg" alt="字符集与编码详解"></p> <p>但是怎么划分字符边界呢？来看一种解决方案，如果编号属于[0,127]，就占用一个字节，且最高位固定标识为0。如果属于[128,2047]，就占用两个字节，且有固定标识位110和10，三个以及更多字节的编码也遵循这样的规则</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0d2df87498ee8a8bf0e29ca80e3b50d5.jpg" alt="字符集与编码详解"></p> <p>以二进制数字01100101，这个字节最高位是零，就表示这个字符只占一个字节，除去标识位，剩下的7位就是该字符的二进制编号，转换成十进制就是101，对应字符e，“世”字同理。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/96a62e331650a431e98a52cb442f58a0.jpg" alt="字符集与编码详解"></p> <p>这样划分字符就不成问题了。刚刚我们做的是解码，现在来编码试试，世界的“界”字在Unicode字符集中编号为30028，符合区间[2048,65535]，所以要占用三字节，使用下面这个模板。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b96f05889b25682960276ca804f53b03.jpg" alt="字符集与编码详解"></p> <p>然后将编号30028转换成二进制01110101 01001100，再对应填到模板中</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b495c7d69f3405c3c1df1989743567eb.jpg" alt="字符集与编码详解"></p> <p>好的，这样就编码完成了， 我们刚刚用的其实就是UTF-8编码，也就是Go语言默认的编码方式。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76389.htm">宠物粮食行业发展前景如何呢视频讲解下载（宠物粮食创业）</a></p>
+                                        <p>下一个：<a href="/news/article-77056.htm">动物疫苗上市公司排名榜单（动物疫苗上市公司有哪些）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-54807.htm" title="妙三多猫三联怎么打（妙三多猫三联多少钱）">妙三多猫三联怎么打（妙三多猫三联多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-64645.htm" title="天津宠物狗领养中心在哪里 天津宠物狗领养中心在哪里啊">天津宠物狗领养中心在哪里 天津宠物狗领养中心在哪里啊</a></li>
+                        <li class="py-2"><a href="/news/article-42058.htm" title="func-spring-boot-starter 匿名函数托管">func-spring-boot-starter 匿名函数托管</a></li>
+                        <li class="py-2"><a href="/news/article-57029.htm" title="家用铁锅品牌前十大排名榜(家用铁锅哪家好)">家用铁锅品牌前十大排名榜(家用铁锅哪家好)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-mihomo-github.htm" title="2月12日→20.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">2月12日→20.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48381.htm" title="宠物领养证图片真实（宠物领养范本）">宠物领养证图片真实（宠物领养范本）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-mihomo-github.htm" title="1月14日→22M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月14日→22M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-latest-mihomo-node.htm" title="1月23日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月23日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-node-subscribe.htm" title="1月20日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月20日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-mihomo-node.htm" title="1月24日→22.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月24日→22.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
