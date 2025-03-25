@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-79793.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>防止重复提交拦截器 spring boot</title>
+        <meta name="description" content="自定义注解防止表单重复提交 import java.lang.annotation.Documented; import java.lang.annotation.ElementType; impor" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-79793.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="防止重复提交拦截器 spring boot" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/02cab602a22d28afb438c7f400457e38.webp" />
+        <meta property="og:release_date" content="2025-03-23T08:24:01" />
+    <meta property="og:updated_time" content="2025-03-23T08:24:01" />
+        <meta property="og:description" content="自定义注解防止表单重复提交 import java.lang.annotation.Documented; import java.lang.annotation.ElementType; impor" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="防止重复提交拦截器 spring boot">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">防止重复提交拦截器 spring boot</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>自定义注解防止表单重复提交</p> <pre><code>import java.lang.annotation.Documented; import java.lang.annotation.ElementType; import java.lang.annotation.Inherited; import java.lang.annotation.Retention; import java.lang.annotation.RetentionPolicy; import java.lang.annotation.Target;  /**  * 自定义注解防止表单重复提交  *   * @author xxx  *  */ @Inherited @Target(ElementType.METHOD) @Retention(RetentionPolicy.RUNTIME) @Documented public @interface RepeatSubmit {  }</code></pre> <p>&nbsp;防止重复提交拦截器</p> <pre><code>import com.alibaba.fastjson.JSONObject; import com.manage.common.core.web.domain.AjaxResult; import com.manage.common.utils.ServletUtils; import com.manage.framework.interceptor.annotation.RepeatSubmit; import org.springframework.stereotype.Component; import org.springframework.web.method.HandlerMethod; import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.lang.reflect.Method;  /**  * 防止重复提交拦截器  *   * @author xxx  */ @Component public abstract class RepeatSubmitInterceptor extends HandlerInterceptorAdapter {     @Override     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception     {         if (handler instanceof HandlerMethod)         {             HandlerMethod handlerMethod = (HandlerMethod) handler;             Method method = handlerMethod.getMethod();             RepeatSubmit annotation = method.getAnnotation(RepeatSubmit.class);             if (annotation != null)             {                 if (this.isRepeatSubmit(request))                 {                     AjaxResult ajaxResult = AjaxResult.error("不允许重复提交，请稍后再试");                     ServletUtils.renderString(response, JSONObject.toJSONString(ajaxResult));                     return false;                 }             }             return true;         }         else         {             return super.preHandle(request, response, handler);         }     }      /**      * 验证是否重复提交由子类实现具体的防重复提交的规则      *       * @param request      * @return      * @throws Exception      */     public abstract boolean isRepeatSubmit(HttpServletRequest request); }</code></pre> <p>判断请求url和数据是否和上一次相同，如果和上次相同，则是重复提交表单。 有效时间为10秒内。</p> <pre><code>import java.util.HashMap; import java.util.Map; import java.util.concurrent.TimeUnit; import javax.servlet.http.HttpServletRequest; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.stereotype.Component; import com.alibaba.fastjson.JSONObject; import com.manage.common.filter.RepeatedlyRequestWrapper; import com.manage.common.utils.StringUtils; import com.manage.common.utils.http.HttpHelper; import com.manage.framework.interceptor.RepeatSubmitInterceptor; import com.manage.framework.redis.RedisCache;  /**  * 判断请求url和数据是否和上一次相同，  * 如果和上次相同，则是重复提交表单。 有效时间为10秒内。  *   * @author xxx  */ @Component public class SameUrlDataInterceptor extends RepeatSubmitInterceptor {     public final String REPEAT_PARAMS = "repeatParams";      public final String REPEAT_TIME = "repeatTime";      public final String CACHE_REPEAT_KEY = "repeatData";      @Autowired     private RedisCache redisCache;      /**      * 间隔时间，单位:秒 默认10秒      *       * 两次相同参数的请求，如果间隔时间大于该参数，系统不会认定为重复提交的数据      */     private int intervalTime = 10;      public void setIntervalTime(int intervalTime)     {         this.intervalTime = intervalTime;     }      @SuppressWarnings("unchecked")     @Override     public boolean isRepeatSubmit(HttpServletRequest request)     {         RepeatedlyRequestWrapper repeatedlyRequest = (RepeatedlyRequestWrapper) request;         String nowParams = HttpHelper.getBodyString(repeatedlyRequest);          // body参数为空，获取Parameter的数据         if (StringUtils.isEmpty(nowParams))         {             nowParams = JSONObject.toJSONString(request.getParameterMap());         }         Map&lt;String, Object&gt; nowDataMap = new HashMap&lt;String, Object&gt;();         nowDataMap.put(REPEAT_PARAMS, nowParams);         nowDataMap.put(REPEAT_TIME, System.currentTimeMillis());          // 请求地址（作为存放session的key值）         String url = request.getRequestURI();          Object sessionObj = redisCache.getCacheObject(CACHE_REPEAT_KEY);         if (sessionObj != null)         {             Map&lt;String, Object&gt; sessionMap = (Map&lt;String, Object&gt;) sessionObj;             if (sessionMap.containsKey(url))             {                 Map&lt;String, Object&gt; preDataMap = (Map&lt;String, Object&gt;) sessionMap.get(url);                 if (compareParams(nowDataMap, preDataMap) &amp;&amp; compareTime(nowDataMap, preDataMap))                 {                     return true;                 }             }         }         Map&lt;String, Object&gt; cacheMap = new HashMap&lt;String, Object&gt;();         cacheMap.put(url, nowDataMap);         redisCache.setCacheObject(CACHE_REPEAT_KEY, cacheMap, intervalTime, TimeUnit.SECONDS);         return false;     }      /**      * 判断参数是否相同      */     private boolean compareParams(Map&lt;String, Object&gt; nowMap, Map&lt;String, Object&gt; preMap)     {         String nowParams = (String) nowMap.get(REPEAT_PARAMS);         String preParams = (String) preMap.get(REPEAT_PARAMS);         return nowParams.equals(preParams);     }      /**      * 判断两次间隔时间      */     private boolean compareTime(Map&lt;String, Object&gt; nowMap, Map&lt;String, Object&gt; preMap)     {         long time1 = (Long) nowMap.get(REPEAT_TIME);         long time2 = (Long) preMap.get(REPEAT_TIME);         if ((time1 - time2) &lt; (this.intervalTime * 1000))         {             return true;         }         return false;     } }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-79112.htm">猫挠出血不打针有事吗（猫挠出血不打针有事吗科普）</a></p>
+                                        <p>下一个：<a href="/news/article-79794.htm">spring-kafka @KafkaListener详解与使用</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-mihomo-node.htm" title="2月17日→22M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">2月17日→22M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37607.htm" title="厦门宠物免费领养网站大全（厦门领养宠物猫中心）">厦门宠物免费领养网站大全（厦门领养宠物猫中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-latest-mihomo-node.htm" title="1月18日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月18日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-node-subscribe.htm" title="1月29日→19.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">1月29日→19.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41062.htm" title="当我们更改小于当前序列号的AUTO_INCREMENT值时，MySQL将返回什么？">当我们更改小于当前序列号的AUTO_INCREMENT值时，MySQL将返回什么？</a></li>
+                        <li class="py-2"><a href="/news/article-35719.htm" title="宠物店利润大吗（宠物店盈利模式是什么）">宠物店利润大吗（宠物店盈利模式是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-41553.htm" title="详解Dockerfile中的copy命令">详解Dockerfile中的copy命令</a></li>
+                        <li class="py-2"><a href="/news/article-77056.htm" title="动物疫苗上市公司排名榜单（动物疫苗上市公司有哪些）">动物疫苗上市公司排名榜单（动物疫苗上市公司有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-57029.htm" title="家用铁锅品牌前十大排名榜(家用铁锅哪家好)">家用铁锅品牌前十大排名榜(家用铁锅哪家好)</a></li>
+                        <li class="py-2"><a href="/news/article-69078.htm" title="什么是MySQL ENUM数据类型？使用ENUM数据类型有什么优势？">什么是MySQL ENUM数据类型？使用ENUM数据类型有什么优势？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
