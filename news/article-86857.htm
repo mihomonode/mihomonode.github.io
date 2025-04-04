@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-86857.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式\ip地址匹配方法</title>
+        <meta name="description" content="(1) re.match\re.search re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 r" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-86857.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="正则表达式\ip地址匹配方法" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/4cf5a0d903f840ebc906e7633ac332c6.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:44:48" />
+    <meta property="og:updated_time" content="2025-04-02T07:44:48" />
+        <meta property="og:description" content="(1) re.match\re.search re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 r" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="正则表达式\ip地址匹配方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">正则表达式\ip地址匹配方法</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <h2> <a id="1_rematchresearch_0" rel="nofollow"></a>(1) re.match\re.search</h2> <pre><code>re.match(pattern,string.flag=0)                        #从第一个字母匹配，span（）输出范围 re.search(pattern,string,flags=0)                      #区别为search搜索整个字符串  </code></pre> <h2> <a id="2_recompile_6" rel="nofollow"></a>(2) re.compile</h2> <pre><code>re.compile(pattern，flag=0) #用来编辑正则表达式，返回一个正则表达式，用于match和search方法 </code></pre> <p>例子：</p> <pre><code>import re pattern = re.compile(r'\d+')                           #得到新的正则表达式pattern result = pattern.search("asdf13 34etq 56') print(result) &gt;&gt;&gt; &lt;re.Match object; span=(4, 6), match='13'&gt;         #注意输出的类型是 re.match 类型 result.group()                                         #group（）的用法，作用是分组，groups（）的作用是全部分组 &gt;&gt;&gt; '13' </code></pre> <h2> <a id="3refindall_23" rel="nofollow"></a>(3)re.findall</h2> <p>re.findall是搜索所有的符合条件的字符串,并<strong>返回一个列表</strong></p> <pre><code>import re pattern =  re.compile(r' \w+\s\w') result1 = pattern.findall("asdf13 34etq 56")                #用法1，用来配合match和search print(result1) &gt;&gt;&gt; ['13', '34', '56'] re.findall(string,pos,endpos)   #（）左封闭，如（0,3）指124 例子：找到字符串里面所有的数字：``` import re string = 'qwe123 rty456 uio789' re.findall(r'\d+',string) &gt;&gt;&gt;['123', '456', '789'] </code></pre> <p>例子：补充！！</p> <h2> <a id="4_40" rel="nofollow"></a>（4）替换与补充</h2> <p>re.sub(pattern,replace，string，count=0,flags=0) #作用就是将搜索到的字符串替换为指定的字符串</p> <pre><code>import re  re.sub(r'\d\d\d','000','123qwe456qwe78ui',count=1) &gt;&gt;&gt;'000qwe456qwe78ui' </code></pre> <p>还可以替换为函数，如将字符串中的数字放大两倍，s = ‘A23G4HFD567’</p> <pre><code>import re def double(): 	补充！！！ </code></pre> <h2> <a id="5refinditer_54" rel="nofollow"></a>（5）re.finditer</h2> <p>refinditer（pattern，string，flags=0）的作用是找到字符串，将其作为一个迭代器返回</p> <pre><code>import re it = re.finditer(r'\d+','as24jjl453lj6l786l8') for match in it: 	print(match.group()) &gt;&gt;&gt;24    453    6     786    8 </code></pre> <h2> <a id="6resplit_67" rel="nofollow"></a>（6）re.split</h2> <p>re.split(pattern,string,maxsplit = 0,flags=0)的作用是以搜索到的字符串作为分割符</p> <pre><code>import re re.split(r'\w+','runnoob, runnoob.') &gt;&gt;&gt; ['', ', ', '.'] </code></pre> <h2> <a id="_75" rel="nofollow"></a>练习：</h2> <p>（1）用正则表达式匹配IP地址172.20.68.170，191.125.1.1</p> <pre><code>import re ip = '192.168.1.1' trueIp =re.search(r'(([01]{0,1}\d{0,1}\d|2[0-4]\d|25[0-5])\.){3}([01]{0,1}\d{0,1}\d|2[0-4]\d|25[0-5])',ip) print(trueIp) &gt;&gt;&gt; 192.168.1.1 ''' 这种写法存在问题，即[01]{0,1}\d{0,1}\d会匹配到001的字符出来，而这样是不对的。故换另一种方式 ''' </code></pre> <p>分析：<br /> 0~99正则表达式为[0-9]{0,1}\d<br /> 100~199表示为 1\d{2}<br /> 200~249表示为 2[0-4]\d<br /> 250~255表示为 25[0-5]<br /> 因此，ip地址的正则表达式为([0-9]{0,1}\d|1\d{2}| 2[0-4]\d|25[0-5].){3}[0-9]{0,1}\d|1\d{2}| 2[0-4]\d|25[0-5]</p> <pre><code>import re ip = '192.170.1.1' re.search(r'([01]{0,1}\d{0,1}\d\.){3}[01]{0,1}\d{0,1}\d',ip) &gt;&gt;&gt; &lt;re.Match object; span=(0, 11), match='192.170.1.1'&gt; </code></pre> <h2> <a id="_102" rel="nofollow"></a>常用的正则表达式</h2> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-86148.htm">疫苗分类包括动物疫苗吗 疫苗分类包括动物疫苗吗为什么</a></p>
+                                        <p>下一个：<a href="/news/article-86858.htm">动物疫苗空瓶回收处理制度内容（动物疫苗空瓶回收处理制度内容怎么写）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-latest-mihomo-node.htm" title="4月1日→19.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">4月1日→19.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88327.htm" title="宠物领养协议需要身份证复印件吗安全吗有效吗 领养宠物需要签协议吗">宠物领养协议需要身份证复印件吗安全吗有效吗 领养宠物需要签协议吗</a></li>
+                        <li class="py-2"><a href="/news/article-69719.htm" title="猫粮品牌汇总大全（猫粮品牌汇总大全图）">猫粮品牌汇总大全（猫粮品牌汇总大全图）</a></li>
+                        <li class="py-2"><a href="/news/article-77750.htm" title="成都免费领养狗狗吧最新消息（成都免费领养宠物中心）">成都免费领养狗狗吧最新消息（成都免费领养宠物中心）</a></li>
+                        <li class="py-2"><a href="/news/article-83293.htm" title="开宠物医院需要资质吗（想开个宠物医院需要考什么证）">开宠物医院需要资质吗（想开个宠物医院需要考什么证）</a></li>
+                        <li class="py-2"><a href="/news/article-66516.htm" title="狗粮猫粮加工设备厂家 狗粮猫粮加工设备厂家电话">狗粮猫粮加工设备厂家 狗粮猫粮加工设备厂家电话</a></li>
+                        <li class="py-2"><a href="/news/article-77056.htm" title="动物疫苗上市公司排名榜单（动物疫苗上市公司有哪些）">动物疫苗上市公司排名榜单（动物疫苗上市公司有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-73006.htm" title="瑞鹏宠物医院什么时候上市（瑞鹏宠物医院创始人简历）">瑞鹏宠物医院什么时候上市（瑞鹏宠物医院创始人简历）</a></li>
+                        <li class="py-2"><a href="/news/article-83294.htm" title="国内宠物食品企业排名（国内宠物食品行业最大的本土品牌公司）">国内宠物食品企业排名（国内宠物食品行业最大的本土品牌公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-node-share.htm" title="3月24日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月24日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
