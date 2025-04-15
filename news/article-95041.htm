@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-95041.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父传子、子传父经典案例—微信小程序自定义标题栏全过程</title>
+        <meta name="description" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程 1. 先在父组件（页面）的data中放入数组数据2. 在component文件夹新建组件Tabs3. 在父组件引入子组件 4. 在父组件的wxml" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-95041.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/7529af9958ee41afc3a64afd47c62013.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:19:22" />
+    <meta property="og:updated_time" content="2025-04-13T07:19:22" />
+        <meta property="og:description" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程 1. 先在父组件（页面）的data中放入数组数据2. 在component文件夹新建组件Tabs3. 在父组件引入子组件 4. 在父组件的wxml" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">父传子、子传父经典案例—微信小程序自定义标题栏全过程</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>父传子、子传父经典案例—微信小程序自定义标题栏全过程</h2> <p><strong>1.</strong> 先在父组件（页面）的data中放入数组数据<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/30bdfcfd7d9da80ab8b7f1af93feb7d5.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>2.</strong> 在component文件夹新建组件Tabs<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/527a4964f1466aac255fd2a288d9fe94.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>3.</strong> 在父组件引入子组件<img decoding="async" src="http://img.555519.xyz/uploads/20230207/88e8201f12f42f7d9aee14fbbfe8e58a.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"></p> <p><strong>4.</strong> 在父组件的wxml中引入子组件标签，此时组件的基操完成，准备进入父传子环节<img decoding="async" src="http://img.555519.xyz/uploads/20230207/28efbd1ce9cca9bfeae662ca3e946d06.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>5.</strong> 父亲向子组件传递数据靠<strong>属性</strong>，咱们在子组件标签中引入在list属性，值为咱们在data中的list数组<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/fd4665f47b749b1dd05393e35165e82c.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>6.</strong> 引入属性后不要忘记在子组件js文件中的properties中写清楚引入的属性的类型以及默认值<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/281a4bddc4dff663331e261712e06c49.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>7.</strong> 此时子组件已经获取父组件的list数据，这时候我们就可以在子组件中操作样式而在父组件（页面）中显示了</p> <p>在子组件wxml中定义标题栏最外层容器存放标题栏和内容<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/ec12914e2e0e0b1fa130b66306bc8abd.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/af53f91fa495d939cc5e8c76a0d97440.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"></p> <p><strong>效果：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/7c6aba9c819ec80030029564716bd5f0.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 此时父传子完成，接下来进行子传父步骤.<br /><strong>8.</strong> 我们接下来想完成点击自定义标题，标题发生样式改变的效果，我们之前是在组件中渲染父组件传递过来的数据的，我们在子组件的wxml中绑定点击事件并且定义索引index，当我们点击标题时出发子组件中的自定义点击事件获得当前标题的索引，并用triggerEvent方法，将点击的索引传递给父组件的自定义点击事件，所以此时我们点击标题，父组件有返回值（若不加这个方法，父组件是没有返回值的）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/89f15a442355a56691f7c1f81e953756.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 所以我们可以从父组件返回值中提取索引，并获取父组件data中的list数组，循环所有标题索引，若等于获取到的index，则该索引对应的值的isactive方法值变为true，否则为false<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/238e3328a44cbb0e21e669d32c162a8b.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>9.</strong> 在子组件wxml中新加active类，若isactive属性为true就添加样式active类<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/2cae647f4244138ab9df51417d800cfb.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 在子组件less文件中设置active样式<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/f8e53b57c73c9c25217bf7e4e3a3b137.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 此时子传父完成，本案例的子传父，即子组件被点击的标题的index值传递给父组件的自定义方法中，最后父组件的这个自定义方法改变这个索引对应的标题的样式。</p> <p><strong>效果：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/51dc6440753b4816ed6cd71c022f9cce.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"></p> <p><strong>总结：</strong><br /> 父传子过程通过属性来进行，子传父过程通过triggerEvent（“父组件自定义点击事件”，子组件要传递的值）方法来传值</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95039.htm">Java程序查找数字出现次数为奇数</a></p>
+                                        <p>下一个：<a href="/news/article-95794.htm">十大动物疫苗公司排名前十有哪些 十大动物疫苗公司排名前十有哪些品牌</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-92748.htm" title="Springboot2整合activemq">Springboot2整合activemq</a></li>
+                        <li class="py-2"><a href="/news/article-71025.htm" title="动物医院心得体会怎么写 动物医院心得体会怎么写范文">动物医院心得体会怎么写 动物医院心得体会怎么写范文</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-mihomo-node-share.htm" title="3月9日→20.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月9日→20.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share.htm" title="3月23日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月23日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-free-subscribe-node.htm" title="4月8日→18.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">4月8日→18.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-67764.htm" title="成人本科兽医有哪些学校（成人本科兽医有哪些学校可以报）">成人本科兽医有哪些学校（成人本科兽医有哪些学校可以报）</a></li>
+                        <li class="py-2"><a href="/news/article-79111.htm" title="国内动物疫苗龙头企业有哪些（动物疫苗上市a股龙头）">国内动物疫苗龙头企业有哪些（动物疫苗上市a股龙头）</a></li>
+                        <li class="py-2"><a href="/news/article-76387.htm" title="动物疫苗属于疫苗分类吗为什么（动物疫苗的分类）">动物疫苗属于疫苗分类吗为什么（动物疫苗的分类）</a></li>
+                        <li class="py-2"><a href="/news/article-76389.htm" title="宠物粮食行业发展前景如何呢视频讲解下载（宠物粮食创业）">宠物粮食行业发展前景如何呢视频讲解下载（宠物粮食创业）</a></li>
+                        <li class="py-2"><a href="/news/article-79794.htm" title="spring-kafka @KafkaListener详解与使用">spring-kafka @KafkaListener详解与使用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

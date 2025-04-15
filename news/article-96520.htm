@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://mihomonode.github.io/news/article-96520.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询</title>
+        <meta name="description" content="SQL的简单查询分为以下几个要点：   基本的查询语句  指定查询条件  注释和sql语句质疑事项  运算符  字符串模糊查询  一、基本的查询语句  具体操作：  查询出所有列：星号(*)  为列设" />
+        <link rel="icon" href="/assets/website/img/mihomonode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Mihomo Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mihomonode.github.io/news/article-96520.htm" />
+    <meta property="og:site_name" content="Mihomo Node免费机场订阅节点官网" />
+    <meta property="og:title" content="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询" />
+    <meta property="og:image" content="https://mihomonode.github.io/uploads/20240922/80501cf4478bec5fc313723a1bff9c3c.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:01:26" />
+    <meta property="og:updated_time" content="2025-04-15T06:01:26" />
+        <meta property="og:description" content="SQL的简单查询分为以下几个要点：   基本的查询语句  指定查询条件  注释和sql语句质疑事项  运算符  字符串模糊查询  一、基本的查询语句  具体操作：  查询出所有列：星号(*)  为列设" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/icofont.min.css"> -->
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/venobox.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/aos.min.css"> -->
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="/assets/website/css/mihomonode/style.css"> -->
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/vendor/vendor.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/plugins/plugins.min.css">
+    <link rel="stylesheet" href="/assets/website/css/mihomonode/style.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48SEJZYLPW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-48SEJZYLPW');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <main class="main-wrapper">
+                <!-- .....:::::: Start Header Section :::::.... -->
+        <header class="header-section d-none d-lg-block">
+            <!-- Start Header Bottom -->
+            <div class="header-bottom sticky-header">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <div class="logo">
+                                <a href="/">
+                                                                <span>Mihomo Node</span>
+                                                                </a>
+                            </div>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Logo -->
+                            <ul class="header-nav">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                            <!-- End Header Logo -->
+                        </div>
+                        <div class="col-auto">
+                            <!-- Start Header Social Link -->
+                            <ul class="social-link social-link-white">
+                                <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                                </li>
+                                <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                            </ul>
+                            <!-- Start Header Social Link -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Bottom -->
+        </header>
+        <!-- .....:::::: End Header Section :::::.... -->
+
+        <!-- .....:::::: Start Mobile Header Section :::::.... -->
+        <div class="mobile-header d-block d-lg-none">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col">
+                        <div class="mobile-logo">
+                            <a href="/">
+                                Mihomo Node
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mobile-action-link text-end">
+                            <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu"><i class="icofont-navigation-menu"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: Start MobileHeader Section :::::.... -->
+        <!--  Start Offcanvas Mobile Menu Section -->
+        <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-rightside offcanvas-mobile-menu-section">
+            <!-- Start Offcanvas Header -->
+            <div class="offcanvas-header text-right">
+                <button class="offcanvas-close"><i class="icofont-close-line"></i></button>
+            </div> <!-- End Offcanvas Header -->
+            <!-- Start Offcanvas Mobile Menu Wrapper -->
+            <div class="offcanvas-mobile-menu-wrapper">
+                <!-- Start Mobile Menu  -->
+                <div class="mobile-menu-bottom">
+                    <!-- Start Mobile Menu Nav -->
+                    <div class="offcanvas-menu">
+                        <ul>
+                                                        <li>
+                                <a href="/"><span>首页</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/free-nodes/"><span>免费节点</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/paid-subscribe/"><span>推荐机场</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/client.htm"><span>客户端</span></a>
+                            </li>
+                                                        <li>
+                                <a href="/news/"><span>新闻资讯</span></a>
+                            </li>
+                                                    </ul>
+                    </div> <!-- End Mobile Menu Nav -->
+                </div> <!-- End Mobile Menu -->
+                <!-- Start Mobile contact Info -->
+                <div class="mobile-contact-info text-center">
+                    <ul class="social-link social-link-white">
+                        <li><a target="_blank" href="#"><i class="icofont-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="#"><i class="icofont-skype"></i></a></li>
+                    </ul>
+                </div>
+                <!-- End Mobile contact Info -->
+            </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+        </div>
+        <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+        <!-- Offcanvas Overlay -->
+        <div class="offcanvas-overlay"></div>
+        <!-- .....:::::: Start Breadcrumb Section :::::.... -->
+        <div class="breadcrumb-section">
+            <div class="breadcrumb-wrapper">
+                <div class="image"><img src="/assets/website/img/mihomonode/background/breadcrumb.png" alt=""></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <h1 class="title">sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询</h1>
+                                <ol class="breadcrumb-link">
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/news/">新闻资讯</a></li>
+                                    <li class="active" aria-current="page">正文</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Breadcrumb Section :::::.... -->
+        <!-- .....:::::: Start Service Display Section :::::.... -->
+        <div class="service-display-section section-top-space py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div> <p>SQL的简单查询分为以下几个要点：</p> <ul> <li> 基本的查询语句</li> <li> 指定查询条件</li> <li> 注释和sql语句质疑事项</li> <li> 运算符</li> <li> 字符串模糊查询</li> </ul> <p><b>一、基本的查询语句</b></p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/152317732d0afc77e2488ec3ed308b21.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>具体操作：</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/2e681b5d3a6d914820b95045dfbd2441.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>查询出所有列：星号(*)</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/b8ebd6953ec3cf69401bd1fc2f41e7fe.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>为列设置别名：</p> <p>别名可以使得查询结果更容易理解</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/2d1e9321771410c892fd6f88b7c2f461.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>删除重复数据：</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/ff83e374f5e17bd2b828c224541e2ef2.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p><b>二、指定查询条件</b></p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/4fc373d3f6dbfab09384c466c66fda76.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>SQL运行顺序：</p> <p>select子句最后运行，其他子句按书写顺序运行</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/7e334d3c752848a47be639cfc6f9b98f.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p><b>三、注释和sql语句注意事项</b></p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/883a0902bef06fb0e301f72fe1f19ecd.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>SQL语句注意事项：</p> <p>（1）SQL语句以英文分号 ( ; ) 结尾</p> <p>（2）SQL语句不区分关键字的大小写</p> <p>（3）输入符号的时候只能使用英文的</p> <p><b>四、运算符</b></p> <ul> <li>算数运算符</li> <li>比较运算符</li> <li>逻辑运算符</li> </ul> <p>（1）算数运算符</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/24edfbd47beec6ba9b881670c39ee5e1.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>所有含有空值的运算，结果还是空值</p> <p>（2）比较运算符</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/8cc26b02a973845374ad87f479cbc7c7.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>字符串类型是直接对它的ASCII码进行逐一比较，比如 '10' &lt; '2'</p> <p>数字的ASCII码&lt;大写字母的ASCII码&lt;小写字母的ASCII码。</p> <ul> <li>如何查询出null值？</li> </ul> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/81bd2d0f844e3e8e706baaaa1a6bf86e.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div><figcaption>   如何查询出null值</figcaption><p>（3）逻辑运算符</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/84ddf105fbf4e8758d91191e9933f7a9.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <p>in 是 or 的简便写法</p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/1904851b5faa8d2b948d52eedf0bc446.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/317e3462db4dc9e959ae4a1c439a6622.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div><figcaption>   not in的写法</figcaption><p><b>五、字符串模糊查询：like</b></p> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/76b3875a61810878ce3669202e0baa86.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/c496241ba6dd8659631a2d2aa62c4889.jpg" alt="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询"></div> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95796.htm">动物医院都有什么部门管理 动物医院都有什么部门管理的</a></p>
+                                        <p>下一个：<a href="/news/article-96521.htm">动物防疫疫苗管理办法最新修订时间（动物防疫方针）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-node-share.htm" title="3月23日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月23日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-89758.htm" title="Spring的两种依赖注入方式:setter方法注入与构造方法注入">Spring的两种依赖注入方式:setter方法注入与构造方法注入</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-node-subscribe-links.htm" title="3月6日→22M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月6日→22M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-free-node-subscribe-links.htm" title="3月15日→18.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月15日→18.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-mihomo-node-github.htm" title="3月2日→19.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月2日→19.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-77749.htm" title="PYYAML学习笔记">PYYAML学习笔记</a></li>
+                        <li class="py-2"><a href="/news/article-70365.htm" title="长沙宠物领养中心电话多少 长沙宠物领养中心电话多少号">长沙宠物领养中心电话多少 长沙宠物领养中心电话多少号</a></li>
+                        <li class="py-2"><a href="/news/article-83994.htm" title="JavaScript定时器的各种案例">JavaScript定时器的各种案例</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-subscribe-node.htm" title="3月4日→19.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月4日→19.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-96520.htm" title="sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询">sql 如何交换一个字符两侧字符的顺序_中级数据分析-SQL简单查询</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Service Display Section :::::.... -->
+                <!-- .....:::::: Start Footer Section :::::.... -->
+        <footer class="footer-section">
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom ">
+                <div class="container">
+                    <div class="row justify-content-md-between justify-content-center align-items-center flex-column-reverse flex-md-row">
+                        <div class="col-auto">
+                            <div class="footer-bottom-left">
+                                <div class="footer-copyright">
+                                    <p class="copyright-text">
+                                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                        <a href="/">Mihomo Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="footer-bottom-right">
+                                <ul class="footer-soacial">
+                                    <li><a href="#" target="_blank">Facebook</a></li>
+                                    <li><a href="#" target="_blank">Twitter</a></li>
+                                    <li><a href="#" target="_blank">Instagram</a></li>
+                                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </footer>
+        <!-- .....:::::: End Footer Section :::::.... -->
+        <!-- material-scrolltop button -->
+        <button class="material-scrolltop" type="button"></button>
+        <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+        <!-- Global Vendor, plugins JS -->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/vendor/jquery-ui.min.js"></script> -->
+        <!--Plugins JS-->
+        <!-- <script src="/assets/website/js/frontend/mihomonode/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/material-scrolltop.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/images-loaded.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/venobox.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/aos.min.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/parallax.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/ajax-mail.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/waypoint.js"></script>
+    <script src="/assets/website/js/frontend/mihomonode/plugins/counter.js"></script> -->
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <script src="/assets/website/js/frontend/mihomonode/vendor/vendor.min.js"></script>
+        <script src="/assets/website/js/frontend/mihomonode/plugins/plugins.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/website/js/frontend/mihomonode/main.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>
