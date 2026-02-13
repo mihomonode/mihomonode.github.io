@@ -1,4 +1,4 @@
-# 2月6日→18.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址  更新时间 2026-02-06 10:48:39
+# 2月13日→21.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址  更新时间 2026-02-13 16:45:34
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://mihomonode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://mihomonode.github.io/uploads/2026/02/0-20260206.yaml
-- https://mihomonode.github.io/uploads/2026/02/1-20260206.yaml
-- https://mihomonode.github.io/uploads/2026/02/2-20260206.yaml
-- https://mihomonode.github.io/uploads/2026/02/3-20260206.yaml
-- https://mihomonode.github.io/uploads/2026/02/4-20260206.yaml
+- https://mihomonode.github.io/uploads/2026/02/0-20260213.yaml
+- https://mihomonode.github.io/uploads/2026/02/1-20260213.yaml
+- https://mihomonode.github.io/uploads/2026/02/2-20260213.yaml
+- https://mihomonode.github.io/uploads/2026/02/3-20260213.yaml
+- https://mihomonode.github.io/uploads/2026/02/4-20260213.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://mihomonode.github.io/uploads/2026/02/0-20260206.txt
-- https://mihomonode.github.io/uploads/2026/02/1-20260206.txt
-- https://mihomonode.github.io/uploads/2026/02/2-20260206.txt
-- https://mihomonode.github.io/uploads/2026/02/3-20260206.txt
-- https://mihomonode.github.io/uploads/2026/02/4-20260206.txt
+- https://mihomonode.github.io/uploads/2026/02/0-20260213.txt
+- https://mihomonode.github.io/uploads/2026/02/1-20260213.txt
+- https://mihomonode.github.io/uploads/2026/02/2-20260213.txt
+- https://mihomonode.github.io/uploads/2026/02/3-20260213.txt
+- https://mihomonode.github.io/uploads/2026/02/4-20260213.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://mihomonode.github.io/uploads/2026/02/20260206.json
+- https://mihomonode.github.io/uploads/2026/02/20260213.json
 
 ## 更多Clash节点订阅 ：
 
