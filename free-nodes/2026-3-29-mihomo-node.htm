@@ -354,9 +354,9 @@ Clash支持多种路由模式，如“全局代理”、“绕过中国大陆地
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何备份 Clash 配置文件？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 的规则文件如何支持广告屏蔽？</h5></div>
     <div class="panel-body">
-        Clash 的配置文件通常位于程序目录或配置文件夹中（如 Windows 下的 .config/clash）。用户可直接复制该 YAML 文件以备份，也可将订阅链接保存，便于后续恢复或在其他设备上同步使用。<hr />    </div>
+        规则文件可添加广告域名或 URL 列表，将请求重定向或阻断。结合策略组和自动更新，Surfboard 可实现全局广告屏蔽，提高浏览体验并节省带宽。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 服务器如何防止被扫描到真实 IP？</h5></div>
@@ -364,34 +364,9 @@ Clash支持多种路由模式，如“全局代理”、“绕过中国大陆地
         可以把 Trojan 部署在反向代理或 CDN 后端，使用 CDN 的中转与域名伪装；同时避免在服务器上暴露其他与域名不匹配的服务，关闭 FTP/SSH 直连并设置防火墙白名单。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 可以替换 Clash 的 YAML 配置吗？</h5></div>
-    <div class="panel-body">
-        可以。Sing-box 原生支持解析 Clash YAML 配置，并自动转换为自身 JSON 结构。节点和规则基本兼容，但部分脚本和自定义插件可能需要手动调整。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-go 如何启用 WebSocket 支持？</h5></div>
     <div class="panel-body">
         在配置文件中将 transport 参数设置为 websocket，并指定 path 路径。客户端需同步使用相同路径及主机名。这样可将 Trojan 流量伪装为普通 WebSocket 通信以提升隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的 PAC 模式适合哪些使用场景？</h5></div>
-    <div class="panel-body">
-        PAC 模式可根据规则文件动态判断流量是否走代理。适合访问国内外混合网站环境，无需手动切换节点，程序自动分流，提高网络访问效率和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 支持游戏加速吗？</h5></div>
-    <div class="panel-body">
-        Netch 专为游戏加速设计，支持 UDP 转发和 TAP 驱动，可有效降低延迟。用户可以为特定游戏添加路由规则，实现分流加速，从而提升国际游戏体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 的规则文件如何支持广告屏蔽？</h5></div>
-    <div class="panel-body">
-        规则文件可添加广告域名或 URL 列表，将请求重定向或阻断。结合策略组和自动更新，Surfboard 可实现全局广告屏蔽，提高浏览体验并节省带宽。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
-    <div class="panel-body">
-        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 如何结合手动节点选择优化访问？</h5></div>
@@ -401,7 +376,32 @@ Clash支持多种路由模式，如“全局代理”、“绕过中国大陆地
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 可以结合规则实现广告屏蔽吗？</h5></div>
     <div class="panel-body">
-        可以。Surfboard 支持通过规则文件匹配广告域名或 URL，将其阻断或重定向。结合策略组定期更新规则，可以实现自动广告屏蔽，提升网页浏览体验并节省带宽。    </div>
+        可以。Surfboard 支持通过规则文件匹配广告域名或 URL，将其阻断或重定向。结合策略组定期更新规则，可以实现自动广告屏蔽，提升网页浏览体验并节省带宽。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 支持游戏加速吗？</h5></div>
+    <div class="panel-body">
+        Netch 专为游戏加速设计，支持 UDP 转发和 TAP 驱动，可有效降低延迟。用户可以为特定游戏添加路由规则，实现分流加速，从而提升国际游戏体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何备份 Clash 配置文件？</h5></div>
+    <div class="panel-body">
+        Clash 的配置文件通常位于程序目录或配置文件夹中（如 Windows 下的 .config/clash）。用户可直接复制该 YAML 文件以备份，也可将订阅链接保存，便于后续恢复或在其他设备上同步使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 可以替换 Clash 的 YAML 配置吗？</h5></div>
+    <div class="panel-body">
+        可以。Sing-box 原生支持解析 Clash YAML 配置，并自动转换为自身 JSON 结构。节点和规则基本兼容，但部分脚本和自定义插件可能需要手动调整。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的 PAC 模式适合哪些使用场景？</h5></div>
+    <div class="panel-body">
+        PAC 模式可根据规则文件动态判断流量是否走代理。适合访问国内外混合网站环境，无需手动切换节点，程序自动分流，提高网络访问效率和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
+    <div class="panel-body">
+        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -430,16 +430,16 @@ Clash支持多种路由模式，如“全局代理”、“绕过中国大陆地
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-5-mihomo-node.htm" title="3月5日→19.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月5日→19.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-22-node-share.htm" title="3月22日→19.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月22日→19.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-mihomo-node-share.htm" title="3月16日→22.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月16日→22.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-2-mihomo-node.htm" title="4月2日→20.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">4月2日→20.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-23-mihomo-node-share.htm" title="3月23日→20.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月23日→20.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-25-free-node-subscribe-links.htm" title="3月25日→19M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月25日→19M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-8-mihomo-node.htm" title="3月8日→19.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月8日→19.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-9-free-mihomo-node.htm" title="3月9日→18.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月9日→18.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-30-free-node-subscribe-links.htm" title="3月30日→21.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月30日→21.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-10-today-mihomo-node.htm" title="3月10日→18.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月10日→18.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-19-today-mihomo-node.htm" title="3月19日→19M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月19日→19M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-21-free-high-speed-nodes.htm" title="3月21日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月21日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-18-free-mihomo-node.htm" title="3月18日→18M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月18日→18M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-6-latest-mihomo-node.htm" title="3月6日→18.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月6日→18.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-15-today-mihomo-node.htm" title="3月15日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月15日→22.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-29-mihomo-node.htm" title="3月29日→21.1M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月29日→21.1M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-7-free-subscribe-node.htm" title="3月7日→20.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月7日→20.2M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-11-free-subscribe-node.htm" title="3月11日→21.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">3月11日→21.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -451,7 +451,7 @@ Clash支持多种路由模式，如“全局代理”、“绕过中国大陆地
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
