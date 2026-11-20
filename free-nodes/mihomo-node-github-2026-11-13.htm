@@ -242,22 +242,13 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-11-12-mihomo-node.htm">11月12日→18.7M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a></p>
+        <p>下一个：<a href="/free-nodes/2026-11-14-node-share.htm">11月14日→19.5M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a></p>
     </div>
 <h4>FAQ</h4>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 支持多用户配置吗？</h5></div>
-    <div class="panel-body">
-        Hysteria2 支持多用户配置，管理员可以在服务器端为不同用户分配独立凭证。这样既能保障隐私，也便于流量统计和限速控制，适合团队或小型共享环境。<hr />    </div>
-</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
     <div class="panel-body">
         Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLess + Reality 的优势主要体现在哪些方面？</h5></div>
-    <div class="panel-body">
-        Reality 采用非传统 TLS 流量伪装方式，通过模拟目标网站证书与握手特征来隐藏代理特征，相较于普通 VLess + TLS 更难被识别。它还具备更高的性能与更少的明文特征，适合高安全需求环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 QUIC 传输模式有哪些优势？</h5></div>
@@ -265,19 +256,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         QUIC 传输减少握手次数，支持多路复用和 UDP 基础，降低延迟并提高吞吐量。在不稳定或高丢包环境下，QUIC 可保证视频、游戏或即时通讯的稳定性和流畅体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan 的证书配置错误会导致什么问题？</h5></div>
+    <div class="panel-body">
+        如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Clash 的规则订阅更新有哪些注意事项？</h5></div>
     <div class="panel-body">
         Clash 订阅更新需保证网络畅通，规则文件格式正确，并与客户端版本兼容。建议定期更新规则以获得最新节点和分流规则，同时注意避免频繁刷新造成性能问题。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 显示配置已加载但无法访问外网，可能原因？</h5></div>
-    <div class="panel-body">
-        检查是否启用了系统代理或 TUN 模式，确认浏览器是否使用系统代理设置；查看防火墙或杀软是否拦截 WinXray；确认节点是否被机场下架或订阅失效，必要时重新导入订阅并测速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的内核能否替换？</h5></div>
-    <div class="panel-body">
-        可以。WinXray 的内核文件独立存在于程序目录中，用户可替换为最新的 v2ray-core 或 xray-core 文件以获取更好的性能与协议支持，但需保持版本兼容。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan-Go 是否支持 WebSocket？</h5></div>
@@ -290,9 +276,24 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         支持。Matsuri 内置订阅更新模块，可自动检测链接变化并定期刷新节点。用户还可手动点击更新按钮同步最新配置，保持网络连接的可用性与速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的证书配置错误会导致什么问题？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 支持多用户配置吗？</h5></div>
     <div class="panel-body">
-        如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。    </div>
+        Hysteria2 支持多用户配置，管理员可以在服务器端为不同用户分配独立凭证。这样既能保障隐私，也便于流量统计和限速控制，适合团队或小型共享环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的内核能否替换？</h5></div>
+    <div class="panel-body">
+        可以。WinXray 的内核文件独立存在于程序目录中，用户可替换为最新的 v2ray-core 或 xray-core 文件以获取更好的性能与协议支持，但需保持版本兼容。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLess + Reality 的优势主要体现在哪些方面？</h5></div>
+    <div class="panel-body">
+        Reality 采用非传统 TLS 流量伪装方式，通过模拟目标网站证书与握手特征来隐藏代理特征，相较于普通 VLess + TLS 更难被识别。它还具备更高的性能与更少的明文特征，适合高安全需求环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 显示配置已加载但无法访问外网，可能原因？</h5></div>
+    <div class="panel-body">
+        检查是否启用了系统代理或 TUN 模式，确认浏览器是否使用系统代理设置；查看防火墙或杀软是否拦截 WinXray；确认节点是否被机场下架或订阅失效，必要时重新导入订阅并测速。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -340,16 +341,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2026-11-8-mihomo-github.htm" title="11月8日→23M/S|2026年每天更新免费节点Mihomo Node订阅链接地址">11月8日→23M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-12-mihomo-node.htm" title="11月12日→18.7M/S|2026年每天更新免费节点Mihomo Node订阅链接地址">11月12日→18.7M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-22-free-node-subscribe.htm" title="10月22日→19.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月22日→19.6M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/mihomo-node-share-2026-10-19.htm" title="10月19日→21.5M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月19日→21.5M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-14-free-subscribe-node.htm" title="10月14日→19.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月14日→19.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-17.htm" title="10月17日→22.5M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月17日→22.5M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-28-today-mihomo-node.htm" title="10月28日→21.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月28日→21.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-11.htm" title="11月11日→21.8M/S|2026年每天更新免费节点Mihomo Node订阅链接地址">11月11日→21.8M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-16-mihomo-node.htm" title="10月16日→19.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月16日→19.7M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/mihomo-node-github-2026-10-13.htm" title="10月13日→20.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月13日→20.8M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/mihomo-node-github-2026-11-13.htm" title="11月13日→19.2M/S|2026年每天更新免费节点Mihomo Node订阅链接地址">11月13日→19.2M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-15.htm" title="10月15日→18.1M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月15日→18.1M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/latest-mihomo-node-2026-11-7.htm" title="11月7日→22.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">11月7日→22.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-11-10-node-share.htm" title="11月10日→18.5M/S|2026年每天更新免费节点Mihomo Node订阅链接地址">11月10日→18.5M/S|2026年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-21.htm" title="10月21日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月21日→18.4M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-25.htm" title="10月25日→21.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">10月25日→21.3M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-6-free-node-subscribe.htm" title="11月6日→22.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址">11月6日→22.9M/S|2025年每天更新免费节点Mihomo Node订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -361,7 +362,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
